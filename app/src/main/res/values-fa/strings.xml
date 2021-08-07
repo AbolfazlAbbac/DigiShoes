@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">فروشگاه نایک</string>
+    <string name="cart">سبد خرید</string>
+    <string name="profile">پروفایل</string>
+    <string name="home">خانه</string>
+    <string name="search">جستجو</string>
+</resources>

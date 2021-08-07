@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Bottom Navigation Theme-->
+    <style name="MyBottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="itemIconTint">@color/my_bottom_navigation_view_color</item>
+        <item name="itemTextColor">@color/my_bottom_navigation_view_color</item>
+        <item name="itemRippleColor">@color/my_navigation_bottom_ripple_color</item>
+        <item name="itemTextAppearanceActive">@style/BottomNavigationTextAppearance</item>
+    </style>
+
+    <style name="BottomNavigationTextAppearance" parent="TextAppearance.MyTheme.Caption">
+        <item name="fontFamily">@font/primary_bold</item>
+        <item name="android:fontFamily">@font/primary_bold</item>
+    </style>
+
+    <!-- Bottom Navigation Theme-->
+
+</resources>
