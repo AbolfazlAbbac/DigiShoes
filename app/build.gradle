@@ -90,5 +90,6 @@ dependencies {
     //Fresco
     implementation 'com.facebook.fresco:fresco:2.5.0'
 
-
+    //Dynamic Animation
+    implementation 'androidx.dynamicanimation:dynamicanimation:1.0.0'
 }

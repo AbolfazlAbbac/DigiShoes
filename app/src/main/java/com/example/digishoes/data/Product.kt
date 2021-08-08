@@ -6,7 +6,7 @@ data class Product(
 	val discount: Int,
 	val id: Int,
 	val title: String,
-	val previousPrice: Int,
+	val previous_price: Int,
 	val status: Int
 )
 

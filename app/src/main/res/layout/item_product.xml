@@ -4,38 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="176dp"
     android:layout_height="wrap_content"
-    android:paddingBottom="12dp"
-    android:layout_marginEnd="4dp"
     android:layout_marginStart="4dp"
-    >
+    android:layout_marginEnd="4dp"
+    android:paddingBottom="12dp">
 
-    <ImageView
+    <com.example.digishoes.view.DigiImageView
         android:id="@+id/productImageIv"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="189dp"
+        app:roundedCornerRadius="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+         />
 
     <TextView
         android:id="@+id/productNameTv"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?textAppearanceBody1"
         android:layout_marginStart="8dp"
-        android:maxLines="2"
         android:ellipsize="end"
+        android:maxLines="2"
         android:minLines="2"
-        android:text="TextView"
+        android:textAppearance="?textAppearanceBody1"
         app:layout_constraintStart_toStartOf="@+id/productImageIv"
-        app:layout_constraintTop_toBottomOf="@+id/productImageIv" />
+        app:layout_constraintTop_toBottomOf="@+id/productImageIv"
+        tools:text="TextView" />
 
     <TextView
         android:id="@+id/productPreviousPriceTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        tools:text="TextView"
+        android:textColor="?android:textColorSecondary"
         android:textAppearance="?textAppearanceBody2"
         app:layout_constraintStart_toStartOf="@+id/productNameTv"
         app:layout_constraintTop_toBottomOf="@+id/productNameTv" />
@@ -44,7 +45,7 @@
         android:id="@+id/productCurrentPriceTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        tools:text="TextView"
         android:textAppearance="?textAppearanceBody1"
         app:layout_constraintStart_toStartOf="@+id/productPreviousPriceTv"
         app:layout_constraintTop_toBottomOf="@+id/productPreviousPriceTv" />
@@ -56,8 +57,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/background_favorite"
+        android:scaleType="centerInside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:scaleType="centerInside"
         app:srcCompat="@drawable/ic_favorites" />
 </androidx.constraintlayout.widget.ConstraintLayout>

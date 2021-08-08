@@ -10,6 +10,7 @@ import com.example.digishoes.data.source.BannerRemoteDataSource
 import com.example.digishoes.data.source.ProductLocalDataSource
 import com.example.digishoes.data.source.ProductRemoteDataSource
 import com.example.digishoes.feature.main.MainViewModel
+import com.example.digishoes.feature.main.ProductAdapter
 import com.example.digishoes.service.FerscoImageLoadingServiceImpl
 import com.example.digishoes.service.ImageLoadingService
 import com.example.digishoes.service.http.getApiServiceInstance
@@ -36,6 +37,7 @@ class App : Application() {
                     ProductLocalDataSource()
                 )
             }
+            factory { ProductAdapter(get()) }
             factory<BannerRepository> { BannerRepositoryImp(BannerRemoteDataSource(get())) }
             viewModel { MainViewModel(get(), get()) }
         }
