@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="176dp"
+    android:layout_height="wrap_content"
+    android:paddingBottom="12dp"
+    android:layout_marginEnd="4dp"
+    android:layout_marginStart="4dp"
+    >
+
+    <ImageView
+        android:id="@+id/productImageIv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/productNameTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?textAppearanceBody1"
+        android:layout_marginStart="8dp"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:minLines="2"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/productImageIv"
+        app:layout_constraintTop_toBottomOf="@+id/productImageIv" />
+
+    <TextView
+        android:id="@+id/productPreviousPriceTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textAppearance="?textAppearanceBody2"
+        app:layout_constraintStart_toStartOf="@+id/productNameTv"
+        app:layout_constraintTop_toBottomOf="@+id/productNameTv" />
+
+    <TextView
+        android:id="@+id/productCurrentPriceTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textAppearance="?textAppearanceBody1"
+        app:layout_constraintStart_toStartOf="@+id/productPreviousPriceTv"
+        app:layout_constraintTop_toBottomOf="@+id/productPreviousPriceTv" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/background_favorite"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/ic_favorites" />
+</androidx.constraintlayout.widget.ConstraintLayout>

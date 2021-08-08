@@ -18,7 +18,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="16dp"
                 app:srcCompat="@drawable/ic_nike_logo" />
 
             <FrameLayout
@@ -28,9 +28,9 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="46dp"
-                    android:layout_marginLeft="24dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginRight="24dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
                     android:background="@drawable/background_searchbox_main"
                     android:drawableStart="@drawable/ic_search"
                     android:drawablePadding="8dp"
@@ -43,11 +43,64 @@
                     android:textColorHint="?android:textColorSecondary" />
             </FrameLayout>
 
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/bannerSliderViewPager"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                app:layout_constraintDimensionRatio="16:9" />
+                android:layout_height="wrap_content">
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/bannerSliderViewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="12dp"
+                    app:layout_constraintDimensionRatio="16:9" />
+
+                <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+                    android:id="@+id/dots_indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|bottom"
+                    android:layout_marginBottom="4dp"
+                    app:dotsColor="#818181"
+                    app:dotsCornerRadius="8dp"
+                    app:dotsSize="8dp"
+                    app:dotsSpacing="2dp"
+                    app:dotsWidthFactor="3"
+                    app:progressMode="false"
+                    app:selectedDotColor="#000000" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|start"
+                    android:layout_marginStart="16dp"
+                    android:gravity="center"
+                    android:text="@string/latest"
+                    android:textAppearance="?textAppearanceHeadline6"
+                    android:textColor="?android:textColorSecondary"
+
+                    />
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="16dp"
+                    android:text="@string/viewAll" />
+            </FrameLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/productLatestRv"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingStart="12dp"
+                android:clipToPadding="false"
+                android:paddingEnd="12dp" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
