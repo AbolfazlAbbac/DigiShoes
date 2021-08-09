@@ -15,7 +15,8 @@
         android:theme="@style/Theme.DigiShoes"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-
+        <activity android:name=".product.ProductDetails"></activity>
+        <activity android:name=".product.ProductDetail" />
         <activity android:name=".feature.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -2,17 +2,14 @@ package com.example.digishoes.feature.main
 
 import androidx.lifecycle.MutableLiveData
 import com.example.digishoes.data.repo.ProductRepository
-import io.reactivex.SingleObserver
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
-import timber.log.Timber
 import com.example.digishoes.common.*
 import com.example.digishoes.data.*
 import com.example.digishoes.data.repo.BannerRepository
 
 class MainViewModel(productRepository: ProductRepository, bannerRepository: BannerRepository) :
-    NikeView.NikeViewModel() {
+    NikeView.DigiViewModel() {
     val productLiveData = MutableLiveData<List<Product>>()
     val productLiveData_Popular = MutableLiveData<List<Product>>()
     val bannerLiveData = MutableLiveData<List<Banner>>()

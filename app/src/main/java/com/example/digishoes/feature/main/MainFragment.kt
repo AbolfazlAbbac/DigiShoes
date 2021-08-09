@@ -1,5 +1,6 @@
 package com.example.digishoes.feature.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,17 +11,19 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.digishoes.R
+import com.example.digishoes.common.EXTRA_KEY_DATA
 import com.example.digishoes.common.NikeFragment
 import com.example.digishoes.data.Product
 import com.example.digishoes.databinding.ActivityMainBinding.inflate
 import com.example.digishoes.databinding.FragmentCartBinding
 import com.example.digishoes.databinding.FragmentMainBinding
+import com.example.digishoes.product.ProductDetails
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 import timber.log.Timber
 
 
-class MainFragment : NikeFragment() {
+class MainFragment : NikeFragment(), ProductAdapter.onClickListener {
     val mainViewModel: MainViewModel by viewModel()
     val productAdapter: ProductAdapter by inject()
     val productAdapterPopular: ProductAdapterPopular by inject()
@@ -52,7 +55,7 @@ class MainFragment : NikeFragment() {
             Timber.i(it.toString())
             productAdapter.products = it as ArrayList<Product>
         }
-
+        productAdapter.productClickListener = this
         mainViewModel.productLiveData_Popular.observe(viewLifecycleOwner) {
             Timber.i(it.toString())
             productAdapterPopular.products = it as ArrayList<Product>
@@ -68,5 +71,11 @@ class MainFragment : NikeFragment() {
             binding.bannerSliderViewPager.adapter = bannerSliderAdapter
             binding.dotsIndicator.setViewPager2(binding.bannerSliderViewPager)
         }
+    }
+
+    override fun productOnClickListener(product: Product) {
+        startActivity(Intent(requireContext(), ProductDetails::class.java).apply {
+            putExtra(EXTRA_KEY_DATA, product)
+        })
     }
 }

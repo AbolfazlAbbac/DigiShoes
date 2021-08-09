@@ -19,6 +19,7 @@ import kotlin.collections.ArrayList
 
 class ProductAdapter(val imageLoadingService: ImageLoadingService) :
     RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
+    var productClickListener: onClickListener? = null
     var products = ArrayList<Product>()
         set(value) {
             field = value
@@ -39,7 +40,7 @@ class ProductAdapter(val imageLoadingService: ImageLoadingService) :
             productPreviousPriceTv.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
             itemView.implementSpringAnimationTrait()
             itemView.setOnClickListener {
-
+                productClickListener?.productOnClickListener(product)
             }
         }
 
@@ -55,10 +56,7 @@ class ProductAdapter(val imageLoadingService: ImageLoadingService) :
         holder.bind(products[position])
 
     override fun getItemCount(): Int = products.size
-}
-
-fun doubleToStringNoDecimal(d: Double): String? {
-    val formatter = NumberFormat.getInstance(Locale.US) as DecimalFormat
-    formatter.applyPattern("#,###")
-    return formatter.format(d)
+    interface onClickListener {
+        fun productOnClickListener(product: Product)
+    }
 }

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".product.ProductDetails">
+
+    <com.example.digishoes.view.scroll.ObservableScrollView
+        android:id="@+id/observableScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.example.digishoes.view.DigiImageView
+                    android:id="@+id/productIv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:viewAspectRatio="1.3" />
+            </FrameLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/productNameTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:textAppearance="@style/TextAppearance.MyTheme.Headline6"
+                    app:layout_constraintEnd_toStartOf="@+id/productPreviousPriceTv"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="نام محصول" />
+
+                <TextView
+                    android:id="@+id/productPreviousPriceTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:textAppearance="?textAppearanceBody2"
+                    android:textColor="?android:textColorSecondary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="125000 تومان" />
+
+                <TextView
+                    android:id="@+id/productCurrentPriceTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    app:layout_constraintEnd_toEndOf="@+id/productPreviousPriceTv"
+                    app:layout_constraintTop_toBottomOf="@+id/productPreviousPriceTv"
+                    tools:text="110000 تومان" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:text=" این کتونی شدیدا برای دویدن و راه رفتن مناسب هست و تقریبا،هیچ فشار مخربی رو نمیذارد به پا و زانوان شما انتقال داده شود
+این کتونی شدیدا برای دویدن و راه رفتن مناسب هست و تقریبا،هیچ فشار مخربی رو نمیذارد به پا و زانوان شما انتقال داده شود
+این کتونی شدیدا برای دویدن و راه رفتن مناسب هست و تقریبا،هیچ فشار مخربی رو نمیذارد به پا و زانوان شما انتقال داده شود
+این کتونی شدیدا برای دویدن و راه رفتن مناسب هست و تقریبا،هیچ فشار مخربی رو نمیذارد به پا و زانوان شما انتقال داده شود
+این کتونی شدیدا برای دویدن و راه رفتن مناسب هست و تقریبا،هیچ فشار مخربی رو نمیذارد به پا و زانوان شما انتقال داده شود
+این کتونی شدیدا برای دویدن و راه رفتن مناسب هست و تقریبا،هیچ فشار مخربی رو نمیذارد به پا و زانوان شما انتقال داده شود
+این کتونی شدیدا برای دویدن و راه رفتن مناسب هست و تقریبا،هیچ فشار مخربی رو نمیذارد به پا و زانوان شما انتقال داده شود
+این کتونی شدیدا برای دویدن و راه رفتن مناسب هست و تقریبا،هیچ فشار مخربی رو نمیذارد به پا و زانوان شما انتقال داده شود
+این کتونی شدیدا برای دویدن و راه رفتن مناسب هست و تقریبا،هیچ فشار مخربی رو نمیذارد به پا و زانوان شما انتقال داده شوداین کتونی شدیدا برای دویدن و راه رفتن مناسب هست و تقریبا،هیچ فشار مخربی رو نمیذارد به پا و زانوان شما انتقال داده شوداین کتونی شدیدا برای دویدن و راه رفتن مناسب هست و تقریبا،هیچ فشار مخربی رو نمیذارد به پا و زانوان شما انتقال داده شود
+این کتونی شدیدا برای دویدن و راه رفتن مناسب هست و تقریبا،هیچ فشار مخربی رو نمیذارد به پا و زانوان شما انتقال داده شود
+این کتونی شدیدا برای دویدن و راه رفتن مناسب هست و تقریبا،هیچ فشار مخربی رو نمیذارد به پا و زانوان شما انتقال داده شود
+این کتونی شدیدا برای دویدن و راه رفتن مناسب هست و تقریبا،هیچ فشار مخربی رو نمیذارد به پا و زانوان شما انتقال داده شود
+این کتونی شدیدا برای دویدن و راه رفتن مناسب هست و تقریبا،هیچ فشار مخربی رو نمیذارد به پا و زانوان شما انتقال داده شود
+این کتونی شدیدا برای دویدن و راه رفتن مناسب هست و تقریبا،هیچ فشار مخربی رو نمیذارد به پا و زانوان شما انتقال داده شود
+این کتونی شدیدا برای دویدن و راه رفتن مناسب هست و تقریبا،هیچ فشار مخربی رو نمیذارد به پا و زانوان شما انتقال داده شوداین کتونی شدیدا برای دویدن و راه رفتن مناسب هست و تقریبا،هیچ فشار مخربی رو نمیذارد به پا و زانوان شما انتقال داده شود
+
+
+
+"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+
+        </LinearLayout>
+    </com.example.digishoes.view.scroll.ObservableScrollView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:translationZ="5dp">
+
+        <ImageView
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|start"
+            android:layout_marginStart="16dp"
+            app:srcCompat="@drawable/ic_back" />
+
+        <ImageView
+            android:id="@+id/favoriteBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="16dp"
+            app:srcCompat="@drawable/ic_favorites" />
+    </FrameLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/toolbarView"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:alpha="0"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="4dp">
+
+        <TextView
+            android:id="@+id/toolbarTitleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|start"
+            android:layout_marginStart="48dp"
+            android:textAppearance="@style/TextAppearance.MyTheme.Headline6"
+            tools:text="نام محصول" />
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

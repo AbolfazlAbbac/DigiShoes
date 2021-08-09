@@ -46,7 +46,7 @@ interface NikeView {
         }
     }
 
-    abstract class NikeViewModel : ViewModel() {
+    abstract class DigiViewModel : ViewModel() {
         val compositeDisposable = CompositeDisposable()
         val progressBar = MutableLiveData<Boolean>()
 
