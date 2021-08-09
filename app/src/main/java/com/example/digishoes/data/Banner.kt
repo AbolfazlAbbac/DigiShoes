@@ -10,3 +10,8 @@ data class Banner(
     val link_type: Int,
     val link_value: String
 ) : Parcelable
+
+const val LATEST_SORT = 0
+const val LATEST_POPULAR = 1
+const val PRICE_SORT_DES = 2
+const val PRICE_SORT_ASC = 3

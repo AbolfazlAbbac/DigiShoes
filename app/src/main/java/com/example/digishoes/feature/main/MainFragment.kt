@@ -23,6 +23,7 @@ import timber.log.Timber
 class MainFragment : NikeFragment() {
     val mainViewModel: MainViewModel by viewModel()
     val productAdapter: ProductAdapter by inject()
+    val productAdapterPopular: ProductAdapterPopular by inject()
 
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!
@@ -43,9 +44,18 @@ class MainFragment : NikeFragment() {
             LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
         binding.productLatestRv.adapter = productAdapter
 
+        binding.productPopularRv.layoutManager =
+            LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
+        binding.productPopularRv.adapter = productAdapterPopular
+
         mainViewModel.productLiveData.observe(viewLifecycleOwner) {
             Timber.i(it.toString())
             productAdapter.products = it as ArrayList<Product>
+        }
+
+        mainViewModel.productLiveData_Popular.observe(viewLifecycleOwner) {
+            Timber.i(it.toString())
+            productAdapterPopular.products = it as ArrayList<Product>
         }
 
         mainViewModel.progressBar.observe(viewLifecycleOwner) {
