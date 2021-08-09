@@ -14,6 +14,7 @@ import com.example.digishoes.view.DigiImageView
 
 class ProductAdapterPopular(val imageLoadingService: ImageLoadingService) :
     RecyclerView.Adapter<ProductAdapterPopular.ViewHolder>() {
+    var productClickListener: ProductAdapter.onClickListener? = null
 
     var products = ArrayList<Product>()
         set(value) {
@@ -34,6 +35,7 @@ class ProductAdapterPopular(val imageLoadingService: ImageLoadingService) :
             imageLoadingService.load(productImageIV, product.image)
             itemView.implementSpringAnimationTrait()
             itemView.setOnClickListener {
+                productClickListener?.productOnClickListener(product)
             }
         }
     }
@@ -49,4 +51,7 @@ class ProductAdapterPopular(val imageLoadingService: ImageLoadingService) :
 
 
     override fun getItemCount(): Int = products.size
+    interface onClickListener {
+        fun productOnClickListener(product: Product)
+    }
 }

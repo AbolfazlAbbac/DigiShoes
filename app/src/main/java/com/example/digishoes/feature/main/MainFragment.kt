@@ -23,7 +23,8 @@ import org.koin.android.viewmodel.ext.android.viewModel
 import timber.log.Timber
 
 
-class MainFragment : NikeFragment(), ProductAdapter.onClickListener {
+class MainFragment : NikeFragment(), ProductAdapter.onClickListener,
+    ProductAdapterPopular.onClickListener {
     val mainViewModel: MainViewModel by viewModel()
     val productAdapter: ProductAdapter by inject()
     val productAdapterPopular: ProductAdapterPopular by inject()
@@ -56,6 +57,8 @@ class MainFragment : NikeFragment(), ProductAdapter.onClickListener {
             productAdapter.products = it as ArrayList<Product>
         }
         productAdapter.productClickListener = this
+        productAdapterPopular.productClickListener = this
+
         mainViewModel.productLiveData_Popular.observe(viewLifecycleOwner) {
             Timber.i(it.toString())
             productAdapterPopular.products = it as ArrayList<Product>
