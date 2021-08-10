@@ -6,9 +6,13 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.digishoes.R
 import com.example.digishoes.databinding.ActivityProductDetailsBinding
 import com.example.digishoes.service.ImageLoadingService
+import com.example.digishoes.view.scroll.ObservableScrollView
+import com.example.digishoes.view.scroll.ObservableScrollViewCallbacks
+import com.example.digishoes.view.scroll.ScrollState
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
+import timber.log.Timber
 
 class ProductDetails : AppCompatActivity() {
     private lateinit var binding: ActivityProductDetailsBinding
@@ -29,6 +33,37 @@ class ProductDetails : AppCompatActivity() {
             binding.productPreviousPriceTv.text =
                 "${String.format("%,d", it.previous_price)} تومان"
             binding.productPreviousPriceTv.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+
+            binding.toolbarTitleTv.text = it.title
+        }
+
+
+        val productImage = binding.productIv
+        productImage.post {
+            val toolbar = binding.toolbarView
+            val productImageHeight = binding.productIv.height
+
+            binding.observableScrollView.addScrollViewCallbacks(object :
+                ObservableScrollViewCallbacks {
+                override fun onScrollChanged(
+                    scrollY: Int,
+                    firstScroll: Boolean,
+                    dragging: Boolean
+                ) {
+                    Timber.i("productIv height is -> $productImageHeight")
+                    toolbar.alpha = scrollY.toFloat() / productImageHeight.toFloat()
+                    productImage.translationY = scrollY.toFloat() / 2
+                }
+
+                override fun onDownMotionEvent() {
+
+                }
+
+                override fun onUpOrCancelMotionEvent(scrollState: ScrollState?) {
+
+                }
+
+            })
         }
     }
 }
