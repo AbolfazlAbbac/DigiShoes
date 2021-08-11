@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginEnd="8dp"
+    android:background="@drawable/background_comments"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/commentTitleTv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:textAppearance="@style/TextAppearance.MyTheme.Body1"
+        app:layout_constraintEnd_toStartOf="@+id/commentDateTv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="عنوان کامنت" />
+
+    <TextView
+        android:id="@+id/commentDateTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.MyTheme.Body2"
+        android:textColor="?android:textColorSecondary"
+        app:layout_constraintBottom_toBottomOf="@+id/commentTitleTv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="تاریخ" />
+
+    <TextView
+        android:id="@+id/commentAuthorTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textAppearance="@style/TextAppearance.MyTheme.Body2"
+        android:textColor="?android:textColorSecondary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/commentTitleTv"
+        tools:text="نویسنده" />
+
+    <TextView
+        android:id="@+id/commentContentTv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="right"
+        android:textAppearance="@style/TextAppearance.MyTheme.Body1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/commentAuthorTv"
+        tools:text="این کفش اورجینال نیست ولی یک های کپی درجه یک هست داخل کفش زده ویتنام ولی چینه . قیمت این کفش تو کیش و سمت بندر حدود ۹۰۰ تومنه با دلار ۲۹ تومن بنظرم تو تهرانم باید یک تا یک و صد بفروشن" />
+</androidx.constraintlayout.widget.ConstraintLayout>

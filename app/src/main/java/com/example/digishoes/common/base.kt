@@ -1,6 +1,7 @@
 package com.example.digishoes.common
 
 import android.content.Context
+import android.provider.Settings.Global.getString
 import android.view.LayoutInflater
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -18,6 +19,8 @@ abstract class NikeFragment : NikeView, Fragment() {
 
     override val viewContext: Context?
         get() = context
+
+
 
 }
 

@@ -3,10 +3,12 @@ package com.example.digishoes.product
 import android.graphics.Paint
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.digishoes.R
+import com.example.digishoes.data.Comment
 import com.example.digishoes.databinding.ActivityProductDetailsBinding
 import com.example.digishoes.service.ImageLoadingService
-import com.example.digishoes.view.scroll.ObservableScrollView
 import com.example.digishoes.view.scroll.ObservableScrollViewCallbacks
 import com.example.digishoes.view.scroll.ScrollState
 import org.koin.android.ext.android.inject
@@ -16,26 +18,45 @@ import timber.log.Timber
 
 class ProductDetails : AppCompatActivity() {
     private lateinit var binding: ActivityProductDetailsBinding
-
     val productDetailViewModel: ProductDetailViewModel by viewModel { parametersOf(intent.extras) }
     val imageLoadingService: ImageLoadingService by inject()
+    val commentAdapter = CommentAdapter()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProductDetailsBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
 
+        val toman: String = getString(R.string.toman)
+
         productDetailViewModel.productLiveData.observe(this) {
             binding.productNameTv.text = it.title
             imageLoadingService.load(binding.productIv, it.image)
             binding.productCurrentPriceTv.text =
-                "${String.format("%,d", it.price)} تومان"
+                "${String.format("%,d", it.price)} $toman"
             binding.productPreviousPriceTv.text =
-                "${String.format("%,d", it.previous_price)} تومان"
+                "${String.format("%,d", it.previous_price)} $toman"
             binding.productPreviousPriceTv.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
 
             binding.toolbarTitleTv.text = it.title
         }
+
+
+
+        productDetailViewModel.commentLiveData.observe(this) {
+            commentAdapter.comments = it as ArrayList<Comment>
+            Timber.i("Comments Here -> $it")
+        }
+
+        initView()
+
+    }
+
+    fun initView() {
+        binding.commentsRvDetails.layoutManager =
+            LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+        binding.commentsRvDetails.adapter = commentAdapter
+        binding.commentsRvDetails.isNestedScrollingEnabled = true
 
 
         val productImage = binding.productIv

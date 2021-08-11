@@ -1,7 +1,7 @@
 package com.example.digishoes.service.http
 
 import com.example.digishoes.data.Banner
-import com.example.digishoes.data.LATEST_SORT
+import com.example.digishoes.data.Comment
 import com.example.digishoes.data.Product
 import io.reactivex.Single
 import retrofit2.Retrofit
@@ -16,6 +16,9 @@ interface ApiService {
 
     @GET("banner/slider")
     fun getBanner(): Single<List<Banner>>
+
+    @GET("comment/list")
+    fun getComments(@Query("product_id") productId: Int): Single<List<Comment>>
 }
 
 fun getApiServiceInstance(): ApiService {
