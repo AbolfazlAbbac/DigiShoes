@@ -17,8 +17,7 @@ class MainViewModel(productRepository: ProductRepository, bannerRepository: Bann
     init {
         progressBar.value = true
         productRepository.getProduct(LATEST_SORT)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
+            .asyncNetwork()
             .doFinally { progressBar.value = false }
             .subscribe(object : DigiSingleObserver<List<Product>>(compositeDisposable) {
                 override fun onSuccess(t: List<Product>) {
@@ -27,8 +26,7 @@ class MainViewModel(productRepository: ProductRepository, bannerRepository: Bann
 
             })
         productRepository.getProduct(LATEST_POPULAR)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
+            .asyncNetwork()
             .doFinally { progressBar.value = false }
             .subscribe(object : DigiSingleObserver<List<Product>>(compositeDisposable) {
                 override fun onSuccess(t: List<Product>) {
@@ -38,8 +36,7 @@ class MainViewModel(productRepository: ProductRepository, bannerRepository: Bann
             })
 
         bannerRepository.getBanners()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
+            .asyncNetwork()
             .subscribe(object : DigiSingleObserver<List<Banner>>(compositeDisposable) {
                 override fun onSuccess(t: List<Banner>) {
                     bannerLiveData.value = t

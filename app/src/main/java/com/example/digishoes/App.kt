@@ -10,6 +10,7 @@ import com.example.digishoes.feature.main.ProductAdapter
 import com.example.digishoes.feature.main.ProductAdapterPopular
 import com.example.digishoes.product.CommentAdapter
 import com.example.digishoes.product.ProductDetailViewModel
+import com.example.digishoes.product.comments.CommentsViewModel
 import com.example.digishoes.service.FerscoImageLoadingServiceImpl
 import com.example.digishoes.service.ImageLoadingService
 import com.example.digishoes.service.http.getApiServiceInstance
@@ -42,6 +43,7 @@ class App : Application() {
             factory<BannerRepository> { BannerRepositoryImp(BannerRemoteDataSource(get())) }
             viewModel { MainViewModel(get(), get()) }
             viewModel { (bundle: Bundle) -> ProductDetailViewModel(bundle, get()) }
+            viewModel { (productId: Int) -> CommentsViewModel(productId, get()) }
         }
         startKoin {
             androidContext(this@App)

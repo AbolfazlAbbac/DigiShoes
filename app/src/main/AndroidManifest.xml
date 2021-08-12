@@ -15,7 +15,7 @@
         android:theme="@style/Theme.DigiShoes"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".product.CommentList"></activity>
+        <activity android:name=".product.comments.CommentList"></activity>
         <activity android:name=".product.ProductDetails" />
         <activity android:name=".product.ProductDetail" />
         <activity android:name=".feature.main.MainActivity">

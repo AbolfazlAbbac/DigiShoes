@@ -80,8 +80,7 @@ fun View.implementSpringAnimationTrait() {
     }
 }
 
-fun <T> Single<T>.asyncNetworkRequest(): Single<T> {
+fun <T> Single<T>.asyncNetwork(): Single<T> {
     return subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())
-
 }

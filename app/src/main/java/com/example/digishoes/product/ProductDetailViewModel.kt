@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import com.example.digishoes.common.DigiSingleObserver
 import com.example.digishoes.common.EXTRA_KEY_DATA
 import com.example.digishoes.common.NikeView
+import com.example.digishoes.common.asyncNetwork
 import com.example.digishoes.data.Comment
 import com.example.digishoes.data.Product
 import com.example.digishoes.data.repo.CommentRepository
@@ -19,8 +20,7 @@ class ProductDetailViewModel(bundle: Bundle, commentRepository: CommentRepositor
     init {
         productLiveData.value = bundle.getParcelable(EXTRA_KEY_DATA)
         commentRepository.getAll(productLiveData.value!!.id)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
+            .asyncNetwork()
             .subscribe(object : DigiSingleObserver<List<Comment>>(compositeDisposable) {
                 override fun onSuccess(t: List<Comment>) {
                     commentLiveData.value = t

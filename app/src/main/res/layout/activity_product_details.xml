@@ -107,8 +107,9 @@
                 android:id="@+id/commentsRv_details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/background_comments"
                 android:clipToPadding="false" />
 
             <com.google.android.material.button.MaterialButton
