@@ -2,6 +2,7 @@ package com.example.digishoes.product
 
 import android.graphics.Paint
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -45,7 +46,9 @@ class ProductDetails : AppCompatActivity() {
 
         productDetailViewModel.commentLiveData.observe(this) {
             commentAdapter.comments = it as ArrayList<Comment>
-            Timber.i("Comments Here -> $it")
+            if (it.size > 3) {
+                binding.viewAllComments.visibility = View.VISIBLE
+            }
         }
 
         initView()

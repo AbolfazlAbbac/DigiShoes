@@ -61,7 +61,7 @@
                     android:id="@+id/productCurrentPriceTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="8dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     app:layout_constraintEnd_toEndOf="@+id/productPreviousPriceTv"
                     app:layout_constraintTop_toBottomOf="@+id/productPreviousPriceTv"
@@ -75,18 +75,54 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="8dp"
                 android:text="این کتونی شدیدا برای دویدن و راه رفتن مناسب هست
-                و تقریبا،هیچ فشار مخربی رو نمیذارد به پا و زانوان شما انتقال داده شود.
-"
+                و تقریبا،هیچ فشار مخربی رو نمیذارد به پا و زانوان شما انتقال داده شود."
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|start"
+                    android:text="@string/comments"
+                    android:textAppearance="@style/TextAppearance.MyTheme.Body1"
+                    android:textColor="?android:textColorSecondary"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|end"
+                    android:text="@string/insertComments"
+                    android:textAppearance="@style/TextAppearance.MyTheme.Body1" />
+            </FrameLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/commentsRv_details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
                 android:layout_marginEnd="8dp"
                 android:clipToPadding="false" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/viewAllComments"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="12dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:text="@string/viewAllComments"
+                android:visibility="gone" />
         </LinearLayout>
     </com.example.digishoes.view.scroll.ObservableScrollView>
 

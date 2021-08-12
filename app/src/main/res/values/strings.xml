@@ -6,6 +6,9 @@
     <string name="search">Search</string>
     <string name="latest">Latest</string>
     <string name="viewAll">View All</string>
+    <string name="viewAllComments">View All Comments</string>
+    <string name="comments">Comments</string>
+    <string name="insertComments">Add Comment</string>
     <string name="popular">Popular</string>
     <string name="toman">Toman</string>
 </resources>

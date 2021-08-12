@@ -8,4 +8,7 @@
     <string name="viewAll">مشاهده همه</string>
     <string name="popular">محبوب ترین</string>
     <string name="toman"><s>تومان</s></string>
+    <string name="viewAllComments">ديدن همه نظرات</string>
+    <string name="comments">نظرات كاربران</string>
+    <string name="insertComments">ثبت نظر</string>
 </resources>
