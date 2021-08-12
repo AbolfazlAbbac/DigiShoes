@@ -4,11 +4,11 @@ import android.os.Bundle
 import androidx.lifecycle.LiveData
 import androidx.navigation.NavController
 import com.example.digishoes.R
-import com.example.digishoes.common.NikeActivity
+import com.example.digishoes.common.DigiActivity
 import com.example.digishoes.common.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class MainActivity : NikeActivity() {
+class MainActivity : DigiActivity() {
 
     private var currentNavController: LiveData<NavController>? = null
 

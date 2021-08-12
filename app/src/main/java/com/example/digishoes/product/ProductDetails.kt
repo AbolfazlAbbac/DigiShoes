@@ -4,15 +4,14 @@ import android.content.Intent
 import android.graphics.Paint
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.digishoes.R
 import com.example.digishoes.common.EXTRA_KEY_ID
+import com.example.digishoes.common.DigiActivity
 import com.example.digishoes.data.Comment
 import com.example.digishoes.databinding.ActivityProductDetailsBinding
 import com.example.digishoes.product.comments.CommentList
-import com.example.digishoes.product.comments.CommentsViewModel
 import com.example.digishoes.service.ImageLoadingService
 import com.example.digishoes.view.scroll.ObservableScrollViewCallbacks
 import com.example.digishoes.view.scroll.ScrollState
@@ -21,7 +20,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 import timber.log.Timber
 
-class ProductDetails : AppCompatActivity() {
+class ProductDetails : DigiActivity() {
     private lateinit var binding: ActivityProductDetailsBinding
     val productDetailViewModel: ProductDetailViewModel by viewModel { parametersOf(intent.extras) }
     val imageLoadingService: ImageLoadingService by inject()
@@ -47,9 +46,9 @@ class ProductDetails : AppCompatActivity() {
             binding.toolbarTitleTv.text = it.title
         }
 
-
-
-
+        productDetailViewModel.progressBar.observe(this){
+            setProgressbarIndicator(it)
+        }
 
         productDetailViewModel.commentLiveData.observe(this) {
             commentAdapter.comments = it as ArrayList<Comment>

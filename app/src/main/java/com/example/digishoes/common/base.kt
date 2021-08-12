@@ -1,19 +1,22 @@
 package com.example.digishoes.common
 
 import android.content.Context
-import android.provider.Settings.Global.getString
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.coordinatorlayout.widget.CoordinatorLayout
+import androidx.core.view.children
+import androidx.core.view.forEach
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.digishoes.R
 import io.reactivex.disposables.CompositeDisposable
+import java.lang.IllegalStateException
 
-abstract class NikeFragment : NikeView, Fragment() {
+abstract class NikeFragment : DigiView, Fragment() {
     override val rootView: ConstraintLayout?
         get() = view as ConstraintLayout
 
@@ -21,18 +24,29 @@ abstract class NikeFragment : NikeView, Fragment() {
         get() = context
 
 
-
 }
 
-abstract class NikeActivity : NikeView, AppCompatActivity() {
+abstract class DigiActivity : DigiView, AppCompatActivity() {
     override val rootView: ConstraintLayout?
-        get() = window.decorView.rootView as ConstraintLayout?
+        get() {
 
+            val viewGroup =
+                window.decorView.rootView.findViewById(android.R.id.content) as ViewGroup
+            if (viewGroup !is ConstraintLayout) {
+                viewGroup.children.forEach {
+                    if (it is ConstraintLayout) {
+                        return it
+                    }
+                }
+                throw IllegalStateException("Exeption in base.kt")
+            } else
+                return viewGroup
+        }
     override val viewContext: Context?
         get() = this
 }
 
-interface NikeView {
+interface DigiView {
     val rootView: ConstraintLayout?
     val viewContext: Context?
     fun setProgressbarIndicator(mustShow: Boolean) {

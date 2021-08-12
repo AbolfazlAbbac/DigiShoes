@@ -3,9 +3,11 @@ package com.example.digishoes.product.comments
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.digishoes.R
+import com.example.digishoes.common.DigiActivity
 import com.example.digishoes.common.EXTRA_KEY_DATA
 import com.example.digishoes.common.EXTRA_KEY_ID
 import com.example.digishoes.data.Comment
@@ -16,7 +18,7 @@ import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
-class CommentList : AppCompatActivity() {
+class CommentList : DigiActivity() {
     val commentViewModel: CommentsViewModel by viewModel {
         parametersOf(
             intent.extras!!.getInt(
@@ -31,13 +33,19 @@ class CommentList : AppCompatActivity() {
         val binding = ActivityCommentListBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val commentListRv = binding.commentListRv
+
+        commentViewModel.progressBar.observe(this) {
+            setProgressbarIndicator(it)
+        }
         commentViewModel.commentsLiveData.observe(this) {
             val commentAdapter = CommentAdapter(true)
             commentAdapter.comments = it as ArrayList<Comment>
-
             commentListRv.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
             commentListRv.adapter = commentAdapter
 
+            binding.toolbarCommentList.setBackOnClickListener = View.OnClickListener {
+                finish()
+            }
         }
     }
 }
