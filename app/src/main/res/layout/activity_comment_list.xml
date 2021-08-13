@@ -14,7 +14,7 @@
             android:id="@+id/toolbar_commentList"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            app:dt_title="asdasdasd" />
+            app:dt_title="@string/comments" />
 
     </com.google.android.material.appbar.AppBarLayout>
 

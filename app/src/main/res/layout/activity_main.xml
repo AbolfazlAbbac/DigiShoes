@@ -21,6 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
+        app:layout_constraintBottom_toBottomOf="@+id/nav_host_container"
         app:menu="@menu/main_navigation" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

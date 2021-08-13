@@ -17,8 +17,8 @@ import io.reactivex.disposables.CompositeDisposable
 import java.lang.IllegalStateException
 
 abstract class NikeFragment : DigiView, Fragment() {
-    override val rootView: ConstraintLayout?
-        get() = view as ConstraintLayout
+    override val rootView: CoordinatorLayout?
+        get() = view as CoordinatorLayout
 
     override val viewContext: Context?
         get() = context
@@ -27,14 +27,14 @@ abstract class NikeFragment : DigiView, Fragment() {
 }
 
 abstract class DigiActivity : DigiView, AppCompatActivity() {
-    override val rootView: ConstraintLayout?
+    override val rootView: CoordinatorLayout?
         get() {
 
             val viewGroup =
                 window.decorView.rootView.findViewById(android.R.id.content) as ViewGroup
-            if (viewGroup !is ConstraintLayout) {
+            if (viewGroup !is CoordinatorLayout) {
                 viewGroup.children.forEach {
-                    if (it is ConstraintLayout) {
+                    if (it is CoordinatorLayout) {
                         return it
                     }
                 }
@@ -47,7 +47,7 @@ abstract class DigiActivity : DigiView, AppCompatActivity() {
 }
 
 interface DigiView {
-    val rootView: ConstraintLayout?
+    val rootView: CoordinatorLayout?
     val viewContext: Context?
     fun setProgressbarIndicator(mustShow: Boolean) {
         rootView?.let {
