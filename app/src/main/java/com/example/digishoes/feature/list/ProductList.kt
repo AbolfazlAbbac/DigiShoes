@@ -1,7 +1,10 @@
 package com.example.digishoes.feature.list
 
+import android.content.DialogInterface
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.GridLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -11,13 +14,16 @@ import com.example.digishoes.common.EXTRA_KEY_DATA
 import com.example.digishoes.data.Product
 import com.example.digishoes.databinding.ActivityProductListBinding
 import com.example.digishoes.feature.common.ProductAdapter
+import com.example.digishoes.feature.common.VIEW_TYPE_LARGE
 import com.example.digishoes.feature.common.VIEW_TYPE_SMALL
+import com.example.digishoes.product.ProductDetails
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 import timber.log.Timber
 
-class ProductList : DigiActivity() {
+class ProductList : DigiActivity(), ProductAdapter.onClickListener {
 
     val productListViewModel: ProductListViewModel by viewModel {
         parametersOf(
@@ -43,5 +49,50 @@ class ProductList : DigiActivity() {
             Timber.i("List Products -> $it")
             productAdapter.products = it as ArrayList<Product>
         }
+
+        binding.viewTypeiv.setOnClickListener {
+            if (productAdapter.viewType == VIEW_TYPE_SMALL) {
+                gridManger.spanCount = 1
+                binding.viewTypeiv.setImageResource(R.drawable.ic_baseline_crop_square_24)
+                productAdapter.viewType = VIEW_TYPE_LARGE
+            } else {
+                gridManger.spanCount = 2
+                binding.viewTypeiv.setImageResource(R.drawable.ic_grid)
+                productAdapter.viewType = VIEW_TYPE_SMALL
+            }
+        }
+
+        productListViewModel.selectedSortTitleLiveData.observe(this) {
+            binding.selectedSortTv.text = getString(it)
+        }
+
+        productListViewModel.progressBar.observe(this) {
+            setProgressbarIndicator(it)
+        }
+
+        productAdapter.productClickListener = this
+
+        binding.toolbarView.setBackOnClickListener = View.OnClickListener {
+            finish()
+        }
+
+        binding.selectedSortView.setOnClickListener {
+            val dialog = MaterialAlertDialogBuilder(this)
+                .setSingleChoiceItems(
+                    R.array.sortArray,
+                    productListViewModel.sort
+                ) { dialog, sort ->
+                    productListViewModel.selectedSortChanged(sort)
+                    dialog.dismiss()
+
+                }.setTitle(R.string.sort)
+            dialog.show()
+        }
+    }
+
+    override fun productOnClickListener(product: Product) {
+        startActivity(Intent(this, ProductDetails::class.java).apply {
+            putExtra(EXTRA_KEY_DATA, product)
+        })
     }
 }

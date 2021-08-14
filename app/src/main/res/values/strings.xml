@@ -16,5 +16,12 @@
     <string name="sortLatestProduct">Latest</string>
     <string name="sortPriceHighToLow">Price: High to Low</string>
     <string name="sortPriceLowToHigh">Price: Low to High</string>
-    <string name="sortpopular">Popular</string>
+    <string name="sortPopular">Popular</string>
+
+    <string-array name="sortArray">
+        <item>@string/sortLatestProduct</item>
+        <item>@string/sortPopular</item>
+        <item>@string/sortPriceHighToLow</item>
+        <item>@string/sortPriceLowToHigh</item>
+    </string-array>
 </resources>

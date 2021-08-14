@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.digishoes.common.EXTRA_KEY_DATA
 import com.example.digishoes.common.NikeFragment
+import com.example.digishoes.data.LATEST_POPULAR
 import com.example.digishoes.data.LATEST_SORT
 import com.example.digishoes.data.Product
 import com.example.digishoes.databinding.FragmentMainBinding
@@ -78,6 +79,12 @@ class HomeFragment : NikeFragment(), ProductAdapter.onClickListener,
         binding.viewAllLatestBtn.setOnClickListener {
             startActivity(Intent(requireContext(), ProductList::class.java).apply {
                 putExtra(EXTRA_KEY_DATA, LATEST_SORT)
+            })
+        }
+
+        binding.viewAllPopularBtn.setOnClickListener {
+            startActivity(Intent(requireContext(), ProductList::class.java).apply {
+                putExtra(EXTRA_KEY_DATA, LATEST_POPULAR)
             })
         }
     }

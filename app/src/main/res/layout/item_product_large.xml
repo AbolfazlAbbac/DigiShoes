@@ -15,7 +15,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:roundedCornerRadius="12dp"
         app:viewAspectRatio="0.8" />
 
     <TextView
@@ -25,9 +24,9 @@
         android:ellipsize="end"
         android:gravity="center"
         android:maxLines="2"
-        android:layout_marginBottom="10dp"
-        android:minLines="2"
-        android:textAppearance="?textAppearanceBody1"
+        android:layout_marginBottom="8dp"
+        android:textAppearance="@style/TextAppearance.MyTheme.Body1"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/productPreviousPriceTv"
         app:layout_constraintStart_toStartOf="@+id/productImageIv"
         tools:text="TextView" />
@@ -38,10 +37,11 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_marginBottom="4dp"
-        android:textAppearance="?textAppearanceBody2"
+        android:textAppearance="@style/TextAppearance.MyTheme.Body1"
         android:textColor="?android:textColorSecondary"
         app:layout_constraintBottom_toTopOf="@+id/productCurrentPriceTv"
         app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/productNameTv"
         tools:text="TextView" />
 
@@ -50,7 +50,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textAppearance="?textAppearanceBody1"
+        android:textSize="16sp"
+        android:textAppearance="@style/TextAppearance.MyTheme.Body1"
         app:layout_constraintBottom_toBottomOf="@+id/productImageIv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

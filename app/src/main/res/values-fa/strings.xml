@@ -16,5 +16,5 @@
     <string name="sortLatestProduct">جدید ترین</string>
     <string name="sortPriceHighToLow">قیمت: گران ترین به ارزان ترین</string>
     <string name="sortPriceLowToHigh">قیمت: ارزان ترین به گران ترین</string>
-    <string name="sortpopular">محبوب ترین</string>
+    <string name="sortPopular">محبوب ترین</string>
 </resources>

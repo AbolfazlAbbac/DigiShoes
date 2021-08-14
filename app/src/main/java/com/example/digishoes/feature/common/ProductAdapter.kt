@@ -19,7 +19,7 @@ const val VIEW_TYPE_ROUNDED = 1
 const val VIEW_TYPE_SMALL = 2
 
 class ProductAdapter(
-    val viewType: Int = VIEW_TYPE_ROUNDED,
+    var viewType: Int = VIEW_TYPE_ROUNDED,
     val imageLoadingService: ImageLoadingService,
     val context: Context
 ) :

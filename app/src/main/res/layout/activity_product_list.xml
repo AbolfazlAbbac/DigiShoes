@@ -11,6 +11,7 @@
         android:layout_height="wrap_content">
 
         <com.example.digishoes.view.DigiToolbarView
+            android:id="@+id/toolbarView"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
             app:dt_title="@string/productList" />
@@ -23,6 +24,16 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="56dp">
+
+            <View
+                android:id="@+id/selectedSortView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="?selectableItemBackground"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/view"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/sortBtn"
@@ -39,16 +50,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:text="@string/sort"
                 android:textAppearance="@style/TextAppearance.MyTheme.Body1"
-                app:layout_constraintBottom_toTopOf="@+id/textView3"
-
+                app:layout_constraintBottom_toTopOf="@+id/selectedSortTv"
                 app:layout_constraintStart_toEndOf="@id/sortBtn"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_chainStyle="packed"
-                tools:text="@string/sort" />
+                app:layout_constraintVertical_chainStyle="packed" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/selectedSortTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.MyTheme.Body2"
@@ -59,9 +69,10 @@
                 tools:text="@string/latest" />
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/viewTypeiv"
                 android:layout_width="56dp"
                 android:layout_height="56dp"
+                android:background="?selectableItemBackground"
                 android:scaleType="centerInside"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -74,7 +85,7 @@
                 android:layout_height="0dp"
                 android:background="?divideColor"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/imageView" />
+                app:layout_constraintEnd_toStartOf="@+id/viewTypeiv" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
