@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="4dp"
+    android:layout_marginEnd="4dp"
+    android:paddingBottom="12dp">
+
+    <com.example.digishoes.view.DigiImageView
+        android:id="@+id/productImageIv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:roundedCornerRadius="12dp"
+        app:viewAspectRatio="0.8" />
+
+    <TextView
+        android:id="@+id/productNameTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="2"
+        android:layout_marginBottom="10dp"
+        android:minLines="2"
+        android:textAppearance="?textAppearanceBody1"
+        app:layout_constraintBottom_toTopOf="@+id/productPreviousPriceTv"
+        app:layout_constraintStart_toStartOf="@+id/productImageIv"
+        tools:text="TextView" />
+
+    <TextView
+        android:id="@+id/productPreviousPriceTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginBottom="4dp"
+        android:textAppearance="?textAppearanceBody2"
+        android:textColor="?android:textColorSecondary"
+        app:layout_constraintBottom_toTopOf="@+id/productCurrentPriceTv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/productNameTv"
+        tools:text="TextView" />
+
+    <TextView
+        android:id="@+id/productCurrentPriceTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textAppearance="?textAppearanceBody1"
+        app:layout_constraintBottom_toBottomOf="@+id/productImageIv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="TextView" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/background_favorite"
+        android:padding="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_favorites" />
+</androidx.constraintlayout.widget.ConstraintLayout>

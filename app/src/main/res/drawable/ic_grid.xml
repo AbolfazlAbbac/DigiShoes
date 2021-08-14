@@ -1,34 +1,18 @@
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="24dp"
     android:height="24dp"
-    android:viewportWidth="24"
-    android:viewportHeight="24">
+    android:viewportWidth="512"
+    android:viewportHeight="512">
   <path
-      android:pathData="M3,3h7v7h-7z"
-      android:strokeLineJoin="round"
-      android:strokeWidth="2"
-      android:fillColor="#00000000"
-      android:strokeColor="#000000"
-      android:strokeLineCap="round"/>
+      android:fillColor="#FF000000"
+      android:pathData="M187.628,0H43.707C19.607,0 0,19.607 0,43.707v143.921c0,24.1 19.607,43.707 43.707,43.707h143.921c24.1,0 43.707,-19.607 43.707,-43.707V43.707C231.335,19.607 211.728,0 187.628,0z"/>
   <path
-      android:pathData="M14,3h7v7h-7z"
-      android:strokeLineJoin="round"
-      android:strokeWidth="2"
-      android:fillColor="#00000000"
-      android:strokeColor="#000000"
-      android:strokeLineCap="round"/>
+      android:fillColor="#FF000000"
+      android:pathData="M468.293,0H324.372c-24.1,0 -43.707,19.607 -43.707,43.707v143.921c0,24.1 19.607,43.707 43.707,43.707h143.921c24.1,0 43.707,-19.607 43.707,-43.707V43.707C512,19.607 492.393,0 468.293,0z"/>
   <path
-      android:pathData="M14,14h7v7h-7z"
-      android:strokeLineJoin="round"
-      android:strokeWidth="2"
-      android:fillColor="#00000000"
-      android:strokeColor="#000000"
-      android:strokeLineCap="round"/>
+      android:fillColor="#FF000000"
+      android:pathData="M187.628,280.665H43.707C19.607,280.665 0,300.272 0,324.372v143.921C0,492.393 19.607,512 43.707,512h143.921c24.1,0 43.707,-19.607 43.707,-43.707V324.372C231.335,300.272 211.728,280.665 187.628,280.665z"/>
   <path
-      android:pathData="M3,14h7v7h-7z"
-      android:strokeLineJoin="round"
-      android:strokeWidth="2"
-      android:fillColor="#00000000"
-      android:strokeColor="#000000"
-      android:strokeLineCap="round"/>
+      android:fillColor="#FF000000"
+      android:pathData="M468.293,280.665H324.372c-24.1,0 -43.707,19.607 -43.707,43.707v143.921c0,24.1 19.607,43.707 43.707,43.707h143.921c24.1,0 43.707,-19.607 43.707,-43.707V324.372C512,300.272 492.393,280.665 468.293,280.665z"/>
 </vector>

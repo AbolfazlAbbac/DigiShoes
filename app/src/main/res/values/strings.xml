@@ -11,4 +11,10 @@
     <string name="insertComments">Add Comment</string>
     <string name="popular">Popular</string>
     <string name="toman">Toman</string>
+    <string name="productList">Product List</string>
+    <string name="sort">Sort</string>
+    <string name="sortLatestProduct">Latest</string>
+    <string name="sortPriceHighToLow">Price: High to Low</string>
+    <string name="sortPriceLowToHigh">Price: Low to High</string>
+    <string name="sortpopular">Popular</string>
 </resources>

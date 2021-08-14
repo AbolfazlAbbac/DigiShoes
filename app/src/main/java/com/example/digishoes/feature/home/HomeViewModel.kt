@@ -1,4 +1,4 @@
-package com.example.digishoes.feature.main
+package com.example.digishoes.feature.home
 
 import androidx.lifecycle.MutableLiveData
 import com.example.digishoes.data.repo.ProductRepository
@@ -6,7 +6,7 @@ import com.example.digishoes.common.*
 import com.example.digishoes.data.*
 import com.example.digishoes.data.repo.BannerRepository
 
-class MainViewModel(productRepository: ProductRepository, bannerRepository: BannerRepository) :
+class HomeViewModel(productRepository: ProductRepository, bannerRepository: BannerRepository) :
     DigiView.DigiViewModel() {
     val productLiveData = MutableLiveData<List<Product>>()
     val productLiveData_Popular = MutableLiveData<List<Product>>()

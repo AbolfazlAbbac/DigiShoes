@@ -1,4 +1,4 @@
-package com.example.digishoes.feature.main
+package com.example.digishoes.feature.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -29,7 +29,7 @@ class BannerFragment : Fragment() {
     }
 
     companion object{
-        fun newInstance(banner : Banner) : BannerFragment{
+        fun newInstance(banner : Banner) : BannerFragment {
             return BannerFragment().apply {
                 arguments=Bundle().apply {
                     putParcelable(EXTRA_KEY_DATA,banner)

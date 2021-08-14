@@ -11,4 +11,10 @@
     <string name="viewAllComments">ديدن همه نظرات</string>
     <string name="comments">نظرات كاربران</string>
     <string name="insertComments">ثبت نظر</string>
+    <string name="productList">لیست محصولات</string>
+    <string name="sort">مرتب سازی</string>
+    <string name="sortLatestProduct">جدید ترین</string>
+    <string name="sortPriceHighToLow">قیمت: گران ترین به ارزان ترین</string>
+    <string name="sortPriceLowToHigh">قیمت: ارزان ترین به گران ترین</string>
+    <string name="sortpopular">محبوب ترین</string>
 </resources>
