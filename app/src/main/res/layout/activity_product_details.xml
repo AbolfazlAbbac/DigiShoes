@@ -122,6 +122,7 @@
                 android:layout_marginEnd="12dp"
                 android:paddingTop="12dp"
                 android:paddingBottom="12dp"
+                android:layout_marginBottom="64dp"
                 android:text="@string/viewAllComments"
                 android:visibility="gone" />
         </LinearLayout>
@@ -166,5 +167,16 @@
             android:textAppearance="@style/TextAppearance.MyTheme.Headline6"
             tools:text="نام محصول" />
     </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/addToCartBtnProductDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:text="@string/addToCart" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

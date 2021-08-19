@@ -4,17 +4,23 @@ import android.content.Intent
 import android.graphics.Paint
 import android.os.Bundle
 import android.view.View
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.digishoes.R
 import com.example.digishoes.common.EXTRA_KEY_ID
 import com.example.digishoes.common.DigiActivity
+import com.example.digishoes.common.DigiCompletableObserver
 import com.example.digishoes.data.Comment
 import com.example.digishoes.databinding.ActivityProductDetailsBinding
 import com.example.digishoes.product.comments.CommentList
 import com.example.digishoes.service.ImageLoadingService
 import com.example.digishoes.view.scroll.ObservableScrollViewCallbacks
 import com.example.digishoes.view.scroll.ScrollState
+import com.google.android.material.snackbar.Snackbar
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.schedulers.Schedulers
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
@@ -25,6 +31,8 @@ class ProductDetails : DigiActivity() {
     val productDetailViewModel: ProductDetailViewModel by viewModel { parametersOf(intent.extras) }
     val imageLoadingService: ImageLoadingService by inject()
     val commentAdapter = CommentAdapter()
+    val compositeDisposable = CompositeDisposable()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,7 +54,7 @@ class ProductDetails : DigiActivity() {
             binding.toolbarTitleTv.text = it.title
         }
 
-        productDetailViewModel.progressBar.observe(this){
+        productDetailViewModel.progressBar.observe(this) {
             setProgressbarIndicator(it)
         }
 
@@ -63,6 +71,22 @@ class ProductDetails : DigiActivity() {
         }
 
         initView()
+
+        binding.addToCartBtnProductDetail.setOnClickListener {
+            productDetailViewModel.onClickAddToCartBtn()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(object : DigiCompletableObserver(compositeDisposable) {
+                    override fun onComplete() {
+                        Snackbar.make(
+                            rootView as CoordinatorLayout,
+                            "به سبد خرید اضافه شد",
+                            Snackbar.LENGTH_LONG
+                        ).show()
+                    }
+
+                })
+        }
 
     }
 
@@ -97,8 +121,12 @@ class ProductDetails : DigiActivity() {
                 override fun onUpOrCancelMotionEvent(scrollState: ScrollState?) {
 
                 }
-
             })
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        compositeDisposable.clear()
     }
 }

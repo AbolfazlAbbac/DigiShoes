@@ -7,7 +7,7 @@ import com.example.digishoes.data.*
 import com.example.digishoes.data.repo.BannerRepository
 
 class HomeViewModel(productRepository: ProductRepository, bannerRepository: BannerRepository) :
-    DigiView.DigiViewModel() {
+    DigiViewModel() {
     val productLiveData = MutableLiveData<List<Product>>()
     val productLiveData_Popular = MutableLiveData<List<Product>>()
     val bannerLiveData = MutableLiveData<List<Banner>>()

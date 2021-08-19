@@ -4,24 +4,25 @@ import androidx.lifecycle.MutableLiveData
 import com.example.digishoes.R
 import com.example.digishoes.common.DigiSingleObserver
 import com.example.digishoes.common.DigiView
+import com.example.digishoes.common.DigiViewModel
 import com.example.digishoes.common.asyncNetwork
 import com.example.digishoes.data.Product
 import com.example.digishoes.data.repo.ProductRepository
 
 class ProductListViewModel(var sort: Int, val productRepository: ProductRepository) :
-    DigiView.DigiViewModel() {
+    DigiViewModel() {
     val productLiveData = MutableLiveData<List<Product>>()
-    val selectedSortTitleLiveData = MutableLiveData<Int>()
-    val sortTitle = arrayOf(
-        R.string.latest,
+    val selectedSortLiveData = MutableLiveData<Int>()
+    val sorTitle = arrayOf(
+        R.string.sortLatestProduct,
         R.string.sortPopular,
-        R.string.sortPriceLowToHigh,
+        R.string.sortPriceHighToLow,
         R.string.sortPriceLowToHigh
     )
 
     init {
         getProduct()
-        selectedSortTitleLiveData.value = sortTitle[sort]
+        selectedSortLiveData.value = sorTitle[sort]
     }
 
     fun getProduct() {
@@ -36,9 +37,9 @@ class ProductListViewModel(var sort: Int, val productRepository: ProductReposito
             })
     }
 
-    fun selectedSortChanged(sort: Int) {
+    fun selectChangeSort(sort: Int) {
         this.sort = sort
-        this.selectedSortTitleLiveData.value = sortTitle[sort]
+        this.selectedSortLiveData.value = sorTitle[sort]
         getProduct()
     }
 }

@@ -2,16 +2,19 @@ package com.example.digishoes.product
 
 import android.os.Bundle
 import androidx.lifecycle.MutableLiveData
-import com.example.digishoes.common.DigiSingleObserver
-import com.example.digishoes.common.EXTRA_KEY_DATA
-import com.example.digishoes.common.DigiView
-import com.example.digishoes.common.asyncNetwork
+import com.example.digishoes.common.*
 import com.example.digishoes.data.Comment
 import com.example.digishoes.data.Product
+import com.example.digishoes.data.repo.CartRepository
 import com.example.digishoes.data.repo.CommentRepository
+import io.reactivex.Completable
 
-class ProductDetailViewModel(bundle: Bundle, commentRepository: CommentRepository) :
-    DigiView.DigiViewModel() {
+class ProductDetailViewModel(
+    bundle: Bundle,
+    private val commentRepository: CommentRepository,
+    private val addCartRepository: CartRepository
+) :
+    DigiViewModel() {
     val productLiveData = MutableLiveData<Product>()
     val commentLiveData = MutableLiveData<List<Comment>>()
 
@@ -28,4 +31,8 @@ class ProductDetailViewModel(bundle: Bundle, commentRepository: CommentRepositor
 
             })
     }
+
+    fun onClickAddToCartBtn(): Completable =
+        addCartRepository.addToCart(productLiveData.value!!.id).ignoreElement()
+
 }

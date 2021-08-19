@@ -50,6 +50,22 @@ class ProductList : DigiActivity(), ProductAdapter.onClickListener {
             productAdapter.products = it as ArrayList<Product>
         }
 
+        binding.selectedSortView.setOnClickListener {
+            val dialog = MaterialAlertDialogBuilder(this)
+                .setSingleChoiceItems(
+                    R.array.sortArray,
+                    productListViewModel.sort
+                ) { dialog, sort ->
+                    dialog.dismiss()
+                    productListViewModel.selectChangeSort(sort)
+                }.setTitle(R.string.sort)
+            dialog.show()
+        }
+
+        productListViewModel.selectedSortLiveData.observe(this) {
+            binding.selectedSortTv.text = getString(it)
+        }
+
         binding.viewTypeiv.setOnClickListener {
             if (productAdapter.viewType == VIEW_TYPE_SMALL) {
                 gridManger.spanCount = 1
@@ -62,8 +78,8 @@ class ProductList : DigiActivity(), ProductAdapter.onClickListener {
             }
         }
 
-        productListViewModel.selectedSortTitleLiveData.observe(this) {
-            binding.selectedSortTv.text = getString(it)
+        binding.toolbarView.setBackOnClickListener = View.OnClickListener {
+            finish()
         }
 
         productListViewModel.progressBar.observe(this) {
@@ -71,23 +87,6 @@ class ProductList : DigiActivity(), ProductAdapter.onClickListener {
         }
 
         productAdapter.productClickListener = this
-
-        binding.toolbarView.setBackOnClickListener = View.OnClickListener {
-            finish()
-        }
-
-        binding.selectedSortView.setOnClickListener {
-            val dialog = MaterialAlertDialogBuilder(this)
-                .setSingleChoiceItems(
-                    R.array.sortArray,
-                    productListViewModel.sort
-                ) { dialog, sort ->
-                    productListViewModel.selectedSortChanged(sort)
-                    dialog.dismiss()
-
-                }.setTitle(R.string.sort)
-            dialog.show()
-        }
     }
 
     override fun productOnClickListener(product: Product) {

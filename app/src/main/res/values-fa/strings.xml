@@ -17,4 +17,17 @@
     <string name="sortPriceHighToLow">قیمت: گران ترین به ارزان ترین</string>
     <string name="sortPriceLowToHigh">قیمت: ارزان ترین به گران ترین</string>
     <string name="sortPopular">محبوب ترین</string>
+    <string name="addToCart">افزدون به سبد خرید</string>
+    <string name="unknown_error">خطای نامشخص</string>
+    <string name="signupScreenTitle">ایجاد حساب کاربری</string>
+    <string name="loginScreenHint">ایمیل و رمزعبور خود را وارد کنید</string>
+    <string name="email">ایمیل</string>
+    <string name="password">رمزعبور</string>
+    <string name="login">ورود</string>
+    <string name="signupHint">حساب کاربری ندارید؟</string>
+    <string name="loginHint">قبلا ثبت نام کرده اید؟</string>
+    <string name="signup">ثبت نام</string>
+    <string name="loginScreenTitle">ورود به حساب کاربری</string>
+
+
 </resources>

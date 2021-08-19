@@ -17,11 +17,21 @@
     <string name="sortPriceHighToLow">Price: High to Low</string>
     <string name="sortPriceLowToHigh">Price: Low to High</string>
     <string name="sortPopular">Popular</string>
-
+    <string name="addToCart">Add To Cart</string>
+    <string name="unknown_error">Unknown Error</string>
     <string-array name="sortArray">
         <item>@string/sortLatestProduct</item>
         <item>@string/sortPopular</item>
         <item>@string/sortPriceHighToLow</item>
         <item>@string/sortPriceLowToHigh</item>
     </string-array>
+    <string name="signupScreenTitle">Create Your Account</string>
+    <string name="loginScreenHint">Enter Your Email And Password</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="signupHint">You do not have an account?</string>
+    <string name="loginHint">Do you have an account?</string>
+    <string name="signup">SignUp</string>
+    <string name="loginScreenTitle">Login into your account</string>
 </resources>
