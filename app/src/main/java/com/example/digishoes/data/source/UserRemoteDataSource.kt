@@ -2,7 +2,7 @@ package com.example.digishoes.data.source
 
 import com.example.digishoes.service.http.ApiService
 import com.google.gson.JsonObject
-import com.sevenlearn.nikestore.data.TokenResponse
+import com.example.digishoes.data.TokenResponse
 import io.reactivex.Single
 
 const val CLIENT_ID = 2

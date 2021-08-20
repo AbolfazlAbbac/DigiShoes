@@ -2,9 +2,11 @@ package com.example.digishoes.service.http
 
 import com.example.digishoes.data.*
 import com.google.gson.JsonObject
-import com.sevenlearn.nikestore.data.TokenResponse
+import com.example.digishoes.data.TokenResponse
 import io.reactivex.Single
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -12,6 +14,7 @@ import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Query
+
 
 interface ApiService {
     @GET("product/list")
@@ -31,6 +34,9 @@ interface ApiService {
 
     @POST("auth/token")
     fun signup(@Body jsonObject: JsonObject): Single<TokenResponse>
+
+    @POST("auth/token")
+    fun refreshToken(@Body jsonObject: JsonObject): Call<TokenResponse>
 }
 
 fun getApiServiceInstance(): ApiService {
@@ -43,9 +49,12 @@ fun getApiServiceInstance(): ApiService {
                 newRequest.addHeader("Authorization", "Bearer ${TokenContainer.token}")
 
             newRequest.addHeader("Accept", "application/json")
-            newRequest.method(oldRequest.method(), oldRequest.body())
+            newRequest.method(oldRequest.method, oldRequest.body)
             return@addInterceptor it.proceed(newRequest.build())
-        }.build()
+        }.addInterceptor(HttpLoggingInterceptor().apply {
+            setLevel(HttpLoggingInterceptor.Level.BODY)
+        })
+        .build()
 
     val retrofit = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())

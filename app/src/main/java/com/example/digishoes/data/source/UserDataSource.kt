@@ -1,6 +1,6 @@
 package com.example.digishoes.data.source
 
-import com.sevenlearn.nikestore.data.TokenResponse
+import com.example.digishoes.data.TokenResponse
 import io.reactivex.Single
 
 interface UserDataSource {

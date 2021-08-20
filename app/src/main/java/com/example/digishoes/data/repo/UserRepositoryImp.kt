@@ -1,10 +1,8 @@
 package com.example.digishoes.data.repo
 
 import com.example.digishoes.data.TokenContainer
-import com.example.digishoes.data.source.CartRemoteDataSource
 import com.example.digishoes.data.source.UserDataSource
-import com.example.digishoes.data.source.UserLocalDataSource
-import com.sevenlearn.nikestore.data.TokenResponse
+import com.example.digishoes.data.TokenResponse
 import io.reactivex.Completable
 
 class UserRepositoryImp(

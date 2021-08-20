@@ -1,4 +1,4 @@
-package com.sevenlearn.nikestore.data
+package com.example.digishoes.data
 
 data class TokenResponse(
     val access_token: String,

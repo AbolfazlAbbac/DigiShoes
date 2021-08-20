@@ -41,7 +41,7 @@ class App : Application() {
 
 
             single<SharedPreferences> { this@App.getSharedPreferences("app_setting", MODE_PRIVATE) }
-
+            single { UserLocalDataSource(get()) }
             single<UserRepository> {
                 UserRepositoryImp(
                     UserRemoteDataSource(get()),

@@ -52,7 +52,7 @@ class FragmentLogin : Fragment() {
         loginBtn.setOnClickListener {
             viewModel.login(emailEt.text.toString(), passwordEt.text.toString())
                 .subscribeOn(Schedulers.io())
-                .subscribeOn(AndroidSchedulers.mainThread())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : DigiCompletableObserver(compositeDisposable) {
                     override fun onComplete() {
                         requireActivity().finish()
