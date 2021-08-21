@@ -6,6 +6,7 @@ import android.os.Bundle
 import com.example.digishoes.data.repo.*
 import com.example.digishoes.data.source.*
 import com.example.digishoes.feature.auth.AuthViewModel
+import com.example.digishoes.feature.cart.CartViewModel
 import com.example.digishoes.feature.home.HomeViewModel
 import com.example.digishoes.feature.common.ProductAdapter
 import com.example.digishoes.feature.common.ProductAdapterPopular
@@ -58,6 +59,7 @@ class App : Application() {
             viewModel { (productId: Int) -> CommentsViewModel(productId, get()) }
             viewModel { (sort: Int) -> ProductListViewModel(sort, get()) }
             viewModel { AuthViewModel(get()) }
+            viewModel { CartViewModel(get()) }
         }
         startKoin {
             androidContext(this@App)

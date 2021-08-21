@@ -1,9 +1,6 @@
 package com.example.digishoes.data.repo
 
-import com.example.digishoes.data.AddToCartResponse
-import com.example.digishoes.data.CartItem
-import com.example.digishoes.data.CartItemCount
-import com.example.digishoes.data.MessageResponse
+import com.example.digishoes.data.*
 import io.reactivex.Single
 
 interface CartRepository {
@@ -12,7 +9,7 @@ interface CartRepository {
 
     fun removeCart(cartItemId: Int): Single<MessageResponse>
 
-    fun get(): Single<CartItem>
+    fun get(): Single<CartResponse>
 
     fun changeItemCount(cartItemId: Int, count: Int): Single<AddToCartResponse>
 
