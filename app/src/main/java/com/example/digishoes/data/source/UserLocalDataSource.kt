@@ -1,6 +1,7 @@
 package com.example.digishoes.data.source
 
 import android.content.SharedPreferences
+import com.example.digishoes.data.MessageResponse
 import com.example.digishoes.data.TokenContainer
 import com.example.digishoes.data.TokenResponse
 import io.reactivex.Single
@@ -13,7 +14,7 @@ class UserLocalDataSource(val sharedPreferences: SharedPreferences) : UserDataSo
         TODO("Not yet implemented")
     }
 
-    override fun signup(username: String, password: String): Single<TokenResponse> {
+    override fun signup(username: String, password: String): Single<MessageResponse> {
         TODO("Not yet implemented")
     }
 

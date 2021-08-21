@@ -12,6 +12,7 @@ import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import com.example.digishoes.R
 import com.example.digishoes.common.DigiCompletableObserver
+import com.google.android.material.button.MaterialButton
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -34,6 +35,7 @@ class FragmentLogin : Fragment() {
         val passwordEt: EditText = view.findViewById(R.id.password_et_login)
         val emailEt: EditText = view.findViewById(R.id.email_et_login)
         val loginBtn: Button = view.findViewById(R.id.loginBtn)
+        val signupLink: MaterialButton = view.findViewById(R.id.loginLinkToSignup)
 
         var boolean = false
         hidePassword.setOnClickListener {
@@ -58,6 +60,12 @@ class FragmentLogin : Fragment() {
                         requireActivity().finish()
                     }
                 })
+        }
+
+        signupLink.setOnClickListener {
+            requireActivity().supportFragmentManager.beginTransaction().apply {
+                replace(R.id.fragmentContainer, FragmentSignUp())
+            }.commit()
         }
     }
 

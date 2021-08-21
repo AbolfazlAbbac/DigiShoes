@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
-            android:text="@string/loginScreenTitle"
+            android:text="@string/signupScreenTitle"
             android:textAppearance="?textAppearanceHeadline5" />
 
         <TextView
@@ -34,7 +34,7 @@
             android:textAppearance="@style/TextAppearance.MyTheme.Headline6" />
 
         <EditText
-            android:id="@+id/email_et_login"
+            android:id="@+id/email_et_signUp"
             style="@style/Theme.DigiShoe.Auth.et"
             android:layout_width="@dimen/size_etLoginPage"
             android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/password_et_login"
+                android:id="@+id/password_et_signUp"
                 style="@style/Theme.DigiShoe.Auth.et"
                 android:layout_width="@dimen/size_etLoginPage"
                 android:layout_height="wrap_content"
@@ -67,11 +67,11 @@
         </FrameLayout>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/loginBtn"
+            android:id="@+id/signupBtn"
             style="@style/Theme.DigiShoe.Auth.Button"
             android:layout_width="@dimen/size_etLoginPage"
             android:layout_height="wrap_content"
-            android:text="@string/login" />
+            android:text="@string/signup" />
 
     </LinearLayout>
 
@@ -87,15 +87,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:alpha="0.4"
-            android:text="@string/signupHint"
+            android:text="@string/loginHint"
             android:textAppearance="@style/TextAppearance.MyTheme.Body1" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/loginLinkToSignup"
+            android:id="@+id/signupLinkToLogin"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/signup" />
+            android:text="@string/loginScreenTitle" />
     </LinearLayout>
 
 </FrameLayout>

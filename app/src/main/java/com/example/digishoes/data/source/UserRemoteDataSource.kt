@@ -1,5 +1,6 @@
 package com.example.digishoes.data.source
 
+import com.example.digishoes.data.MessageResponse
 import com.example.digishoes.service.http.ApiService
 import com.google.gson.JsonObject
 import com.example.digishoes.data.TokenResponse
@@ -19,9 +20,9 @@ class UserRemoteDataSource(val apiService: ApiService) : UserDataSource {
         })
     }
 
-    override fun signup(username: String, password: String): Single<TokenResponse> {
+    override fun signup(username: String, password: String): Single<MessageResponse> {
         return apiService.signup(JsonObject().apply {
-            addProperty("username",username)
+            addProperty("email",username)
             addProperty("password",password)
         })
     }

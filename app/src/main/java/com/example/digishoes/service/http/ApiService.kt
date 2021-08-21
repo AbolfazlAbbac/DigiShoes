@@ -2,7 +2,6 @@ package com.example.digishoes.service.http
 
 import com.example.digishoes.data.*
 import com.google.gson.JsonObject
-import com.example.digishoes.data.TokenResponse
 import io.reactivex.Single
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -32,8 +31,8 @@ interface ApiService {
     @POST("auth/token")
     fun login(@Body jsonObject: JsonObject): Single<TokenResponse>
 
-    @POST("auth/token")
-    fun signup(@Body jsonObject: JsonObject): Single<TokenResponse>
+    @POST("user/register")
+    fun signup(@Body jsonObject: JsonObject): Single<MessageResponse>
 
     @POST("auth/token")
     fun refreshToken(@Body jsonObject: JsonObject): Call<TokenResponse>

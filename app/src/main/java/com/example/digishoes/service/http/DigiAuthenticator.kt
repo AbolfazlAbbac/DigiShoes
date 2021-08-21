@@ -19,7 +19,9 @@ class DigiAuthenticator : Authenticator, KoinComponent {
     val userLocalDataSource: UserLocalDataSource by inject()
 
     override fun authenticate(route: Route?, response: Response): Request? {
-        if (TokenContainer.token != null && TokenContainer.refresh_token != null && !response.request.url.pathSegments.last().equals("token")) {
+        if (TokenContainer.token != null && TokenContainer.refresh_token != null && !response.request.url.pathSegments.last()
+                .equals("token", false)
+        ) {
             try {
                 val token = refreshToken()
                 if (token.isEmpty()) {
@@ -35,7 +37,7 @@ class DigiAuthenticator : Authenticator, KoinComponent {
         return null
     }
 
-    fun refreshToken(): String {
+    private fun refreshToken(): String {
         val response: retrofit2.Response<TokenResponse> =
             apiService.refreshToken(JsonObject().apply {
                 addProperty("grant_type", "refresh_token")
