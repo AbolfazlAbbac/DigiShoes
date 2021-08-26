@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.digishoes.R
 import com.example.digishoes.common.implementSpringAnimationTrait
+import com.example.digishoes.common.priceFormat
 import com.example.digishoes.data.Product
 import com.example.digishoes.service.ImageLoadingService
 import com.example.digishoes.view.DigiImageView
@@ -32,8 +33,8 @@ class ProductAdapterPopular(val imageLoadingService: ImageLoadingService, val co
             val toman: String = context.getString(R.string.toman)
 
             productNameTv.text = product.title
-            productCurrentPriceTv.text = "${String.format("%,d", product.price)} $toman"
-            productPreviousPriceTv.text = "${String.format("%,d", product.previous_price)} $toman"
+            productCurrentPriceTv.text =priceFormat(product.price,context)
+            productPreviousPriceTv.text = priceFormat(product.previous_price,context)
             productPreviousPriceTv.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
             imageLoadingService.load(productImageIV, product.image)
             itemView.implementSpringAnimationTrait()

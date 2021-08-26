@@ -34,4 +34,10 @@
     <string name="loginHint">Do you have an account?</string>
     <string name="signup">SignUp</string>
     <string name="loginScreenTitle">Login into your account</string>
+    <string name="count">Count</string>
+    <string name="removeFromCart">Remove From Cart</string>
+    <string name="purchaseDetails">purchaseDetails</string>
+    <string name="totalAmount">Total Amount</string>
+    <string name="shippingCost">shipping cost</string>
+    <string name="theAmountPayable">The amount payable</string>
 </resources>

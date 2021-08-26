@@ -6,14 +6,13 @@ import com.example.digishoes.common.DigiViewModel
 import com.example.digishoes.common.asyncNetwork
 import com.example.digishoes.data.CartItem
 import com.example.digishoes.data.CartResponse
-import com.example.digishoes.data.MessageResponse
-import com.example.digishoes.data.purchaseDetail
+import com.example.digishoes.data.PurchaseDetail
 import com.example.digishoes.data.repo.CartRepository
 import io.reactivex.Completable
 
 class CartViewModel(val cartRepository: CartRepository) : DigiViewModel() {
     val cartItemLiveData = MutableLiveData<List<CartItem>>()
-    val purchaseDetailLiveData = MutableLiveData<purchaseDetail>()
+    val purchaseDetailLiveData = MutableLiveData<PurchaseDetail>()
 
     private fun getItemCart() {
         progressBar.value = true
@@ -27,7 +26,7 @@ class CartViewModel(val cartRepository: CartRepository) : DigiViewModel() {
                 override fun onSuccess(t: CartResponse) {
                     cartItemLiveData.value = t.cart_items
                     purchaseDetailLiveData.value =
-                        purchaseDetail(t.payable_price, t.shipping_cost, t.total_price)
+                        PurchaseDetail(t.payable_price, t.shipping_cost, t.total_price)
                 }
             })
     }

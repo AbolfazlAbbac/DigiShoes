@@ -7,4 +7,4 @@ data class CartResponse(
     val total_price: Int
 )
 
-data class purchaseDetail(var payable_price: Int, var shipping_cost: Int, var total_price: Int)
+data class PurchaseDetail(var payable_price: Int, var shipping_cost: Int, var total_price: Int)

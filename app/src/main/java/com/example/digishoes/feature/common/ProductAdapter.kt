@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.airbnb.lottie.utils.Utils
 import com.example.digishoes.R
 import com.example.digishoes.common.implementSpringAnimationTrait
+import com.example.digishoes.common.priceFormat
 import com.example.digishoes.data.Product
 import com.example.digishoes.service.ImageLoadingService
 import com.example.digishoes.view.DigiImageView
@@ -35,8 +37,6 @@ class ProductAdapter(
     inner class ViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
 
-        val toman: String = context.getString(R.string.toman)
-
         val productNameTv: TextView = itemView.findViewById(R.id.productNameTv)
         val productImageView: DigiImageView = itemView.findViewById(R.id.productImageIv)
         val productPreviousPriceTv: TextView = itemView.findViewById(R.id.productPreviousPriceTv)
@@ -45,8 +45,8 @@ class ProductAdapter(
 
             imageLoadingService.load(productImageView, product.image)
             productNameTv.text = product.title
-            productCurrentPriceTv.text = "${String.format("%,d", product.price)} $toman"
-            productPreviousPriceTv.text = "${String.format("%,d", product.previous_price)} $toman"
+            productCurrentPriceTv.text = priceFormat(product.price, context)
+            productPreviousPriceTv.text = priceFormat(product.previous_price,context)
             productPreviousPriceTv.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
             itemView.implementSpringAnimationTrait()
             itemView.setOnClickListener {

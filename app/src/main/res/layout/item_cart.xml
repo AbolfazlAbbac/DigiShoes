@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="4dp"
+    app:cardElevation="2dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.example.digishoes.view.DigiImageView
+            android:id="@+id/productPictureIv"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/productNameTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:textAppearance="?textAppearanceHeadline6"
+            app:layout_constraintBottom_toBottomOf="@+id/productPictureIv"
+            app:layout_constraintEnd_toStartOf="@+id/productPictureIv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/productPictureIv"
+            tools:text="سلام چطوری" />
+
+        <TextView
+            android:id="@+id/productPreviousPriceTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:textAppearance="?textAppearanceBody2"
+            android:textColor="?android:textColorSecondary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/productPictureIv"
+            tools:text="160000" />
+
+        <TextView
+            android:id="@+id/productCurrentPriceTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textAppearance="?textAppearanceBody1"
+            app:layout_constraintStart_toStartOf="@+id/productPreviousPriceTv"
+            app:layout_constraintTop_toBottomOf="@+id/productPreviousPriceTv"
+            tools:text="6541654566" />
+
+        <ImageView
+            android:id="@+id/increaseBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="?selectableItemBackgroundBorderless"
+            app:layout_constraintBottom_toBottomOf="@+id/cartCountTv"
+            app:layout_constraintEnd_toStartOf="@+id/cartCountTv"
+            app:layout_constraintTop_toTopOf="@+id/cartCountTv"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ic_plus_square" />
+
+        <ImageView
+            android:id="@+id/decreaseBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:background="?selectableItemBackgroundBorderless"
+            app:layout_constraintBottom_toBottomOf="@+id/cartCountTv"
+            app:layout_constraintStart_toEndOf="@+id/cartCountTv"
+            app:layout_constraintTop_toTopOf="@+id/cartCountTv"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ic_mines_square" />
+
+        <TextView
+
+            android:id="@+id/cartCountTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:gravity="center"
+            android:textAppearance="?textAppearanceBody1"
+            app:layout_constraintEnd_toEndOf="@+id/textView5"
+            app:layout_constraintStart_toStartOf="@+id/textView5"
+            app:layout_constraintTop_toBottomOf="@+id/textView5"
+            tools:text="1" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/count"
+            app:layout_constraintEnd_toEndOf="@+id/productPictureIv"
+            app:layout_constraintStart_toStartOf="@+id/productPictureIv"
+            app:layout_constraintTop_toBottomOf="@+id/productPictureIv" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="?divideColor"
+            app:layout_constraintBottom_toTopOf="@+id/removeProductFromCartBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/removeProductFromCartBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:background="?selectableItemBackground"
+            android:gravity="center"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:text="@string/removeFromCart"
+            android:textAppearance="?textAppearanceHeadline6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/productCurrentPriceTv" />
+
+        <ProgressBar
+            android:id="@+id/progressbarCountCart"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/decreaseBtn"
+            app:layout_constraintEnd_toStartOf="@+id/decreaseBtn"
+            app:layout_constraintStart_toEndOf="@+id/increaseBtn"
+            app:layout_constraintTop_toTopOf="@+id/decreaseBtn" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

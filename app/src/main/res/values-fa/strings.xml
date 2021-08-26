@@ -28,6 +28,12 @@
     <string name="loginHint">قبلا ثبت نام کرده اید؟</string>
     <string name="signup">ثبت نام</string>
     <string name="loginScreenTitle">ورود به حساب کاربری</string>
+    <string name="count">تعداد</string>
+    <string name="removeFromCart">حذف از سبد خرید</string>
+    <string name="purchaseDetails">جزئیات خرید</string>
+    <string name="totalAmount">مبلغ کل خرید</string>
+    <string name="shippingCost">هزینه ارسال</string>
+    <string name="theAmountPayable">مبلغ قابل پرداخت</string>
 
 
 </resources>

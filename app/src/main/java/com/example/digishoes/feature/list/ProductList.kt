@@ -1,13 +1,9 @@
 package com.example.digishoes.feature.list
 
-import android.content.DialogInterface
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.GridLayout
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.digishoes.R
 import com.example.digishoes.common.DigiActivity
 import com.example.digishoes.common.EXTRA_KEY_DATA
@@ -77,6 +73,7 @@ class ProductList : DigiActivity(), ProductAdapter.onClickListener {
                 productAdapter.viewType = VIEW_TYPE_SMALL
             }
         }
+        
 
         binding.toolbarView.setBackOnClickListener = View.OnClickListener {
             finish()

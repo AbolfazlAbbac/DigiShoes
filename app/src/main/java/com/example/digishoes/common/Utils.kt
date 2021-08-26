@@ -10,10 +10,12 @@ import android.view.View
 import androidx.dynamicanimation.animation.DynamicAnimation
 import androidx.dynamicanimation.animation.SpringAnimation
 import androidx.dynamicanimation.animation.SpringForce
+import com.example.digishoes.R
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import timber.log.Timber
+import kotlin.coroutines.coroutineContext
 
 fun convertDpToPixel(dp: Float, context: Context?): Float {
     return if (context != null) {
@@ -84,3 +86,9 @@ fun <T> Single<T>.asyncNetwork(): Single<T> {
     return subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())
 }
+
+fun priceFormat(price: Int, context: Context): String {
+    val toman = context.getString(R.string.toman)
+    return "${String.format("%,d", price)} $toman"
+}
+
