@@ -4,13 +4,19 @@ import android.app.Application
 import android.content.SharedPreferences
 import android.os.Bundle
 import com.example.digishoes.data.repo.*
+import com.example.digishoes.data.repo.shipping.OrderRemoteDataSource
+import com.example.digishoes.data.repo.shipping.OrderRepository
+import com.example.digishoes.data.repo.shipping.OrderRepositoryImpl
 import com.example.digishoes.data.source.*
 import com.example.digishoes.feature.auth.AuthViewModel
 import com.example.digishoes.feature.cart.CartViewModel
-import com.example.digishoes.feature.home.HomeViewModel
+import com.example.digishoes.feature.checkout.CheckoutViewModel
 import com.example.digishoes.feature.common.ProductAdapter
 import com.example.digishoes.feature.common.ProductAdapterPopular
+import com.example.digishoes.feature.home.HomeViewModel
 import com.example.digishoes.feature.list.ProductListViewModel
+import com.example.digishoes.feature.main.MainViewModel
+import com.example.digishoes.feature.shipping.ShippingViewModel
 import com.example.digishoes.product.ProductDetailViewModel
 import com.example.digishoes.product.comments.CommentsViewModel
 import com.example.digishoes.service.FerscoImageLoadingServiceImpl
@@ -49,6 +55,9 @@ class App : Application() {
                     UserLocalDataSource(get())
                 )
             }
+            single<OrderRepository> {
+                OrderRepositoryImpl(OrderRemoteDataSource(get()))
+            }
             factory { ProductAdapterPopular(get(), androidContext()) }
             factory { (viewType: Int) -> ProductAdapter(viewType, get(), androidContext()) }
             factory<CommentRepository> { CommentRepositoryImp(CommentRemoteDataSource(get())) }
@@ -60,8 +69,12 @@ class App : Application() {
             viewModel { (sort: Int) -> ProductListViewModel(sort, get()) }
             viewModel { AuthViewModel(get()) }
             viewModel { CartViewModel(get()) }
+            viewModel { MainViewModel(get()) }
+            viewModel { ShippingViewModel(get()) }
+            viewModel { (orderId: Int) -> CheckoutViewModel(orderId, get()) }
         }
-        startKoin {
+        startKoin()
+        {
             androidContext(this@App)
             modules(myModule)
 

@@ -15,6 +15,23 @@
         android:theme="@style/Theme.DigiShoes"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
+        <activity android:name=".feature.checkout.CheckoutActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="expertdevelopers.ir"
+                    android:pathPattern="/appCheckout"
+                    android:scheme="nike" />
+            </intent-filter>
+
+
+        </activity>
+        <activity android:name=".feature.shipping.ShippingActivity" />
         <activity
             android:name=".feature.auth.AuthActivity"
             android:theme="@style/Theme.DigiShoe.Auth" />
@@ -22,7 +39,9 @@
         <activity android:name=".product.comments.CommentList" />
         <activity android:name=".product.ProductDetails" />
         <activity android:name=".product.ProductDetail" />
-        <activity android:name=".feature.main.MainActivity">
+        <activity
+            android:name=".feature.main.MainActivity"
+            android:windowSoftInputMode="stateAlwaysHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

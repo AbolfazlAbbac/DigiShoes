@@ -12,12 +12,17 @@ import com.example.digishoes.common.DigiCompletableObserver
 import com.example.digishoes.common.EXTRA_KEY_DATA
 import com.example.digishoes.common.NikeFragment
 import com.example.digishoes.data.CartItem
+import com.example.digishoes.feature.auth.AuthActivity
+import com.example.digishoes.feature.auth.FragmentLogin
 import com.example.digishoes.feature.common.CartItemAdapter
+import com.example.digishoes.feature.shipping.ShippingActivity
 import com.example.digishoes.product.ProductDetails
 import com.example.digishoes.service.ImageLoadingService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.empty_state_view.*
+import kotlinx.android.synthetic.main.empty_state_view.view.*
 import kotlinx.android.synthetic.main.fragment_cart.*
 import org.koin.android.ext.android.inject
 import timber.log.Timber
@@ -63,6 +68,28 @@ class CartFragment : NikeFragment(), CartItemAdapter.CartItemListener {
             }
         }
 
+        viewModel.emptyStateLiveData.observe(viewLifecycleOwner) {
+            if (it.mostShow) {
+                val emptyState = showEmptyState(R.layout.empty_state_view)
+                emptyState?.let { view ->
+                    view.messageEmptyState.text = getString(it.textEmptyState)
+                    view.CbnBtn.visibility = if (it.Cba) View.VISIBLE else View.GONE
+                    view.CbnBtn.setOnClickListener {
+                        startActivity(Intent(requireContext(), AuthActivity::class.java))
+                    }
+                    if (it.image) view.imageEmptyState.setImageResource(+R.raw.empty) else view.imageEmptyState.setImageResource(
+                        +R.raw.signup_pic
+                    )
+                }
+            } else
+                emptySateLayout?.visibility = View.GONE
+        }
+
+        addToCartBtn.setOnClickListener {
+            startActivity(Intent(requireContext(), ShippingActivity::class.java).apply {
+                putExtra(EXTRA_KEY_DATA, viewModel.purchaseDetailLiveData.value)
+            })
+        }
 
     }
 

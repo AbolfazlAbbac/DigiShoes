@@ -40,4 +40,28 @@
     <string name="totalAmount">Total Amount</string>
     <string name="shippingCost">shipping cost</string>
     <string name="theAmountPayable">The amount payable</string>
+
+    <string name="emptyStateLoginMessage">Please Login Your Account </string>
+    <string name="emptyState">Make your first purchase!</string>
+    <string name="emptyStateCbn">Login Account</string>
+    <string name="firstName">First Name</string>
+    <string name="lastName">last Name</string>
+    <string name="postalCode">Postal Code</string>
+    <string name="phoneNumber">Phone Number</string>
+    <string name="address">Address</string>
+    <string name="cashOnDelivery">Cash On Delivery</string>
+    <string name="onlinePayment">Online Payment</string>
+
+    <string name="shippingTitlePage">Enter information</string>
+
+    <string name="checkoutToolbarTitle">Order Status</string>
+    <string name="returnToHome">Return To Home</string>
+    <string name="orderHistory">Order History</string>
+    <string name="price">Price</string>
+    <string name="orderStatus">Order Status</string>
+
+    <string name="success">Success</string>
+    <string name="failed">Failed</string>
+
+    <string name="favorite">Favorite</string>
 </resources>

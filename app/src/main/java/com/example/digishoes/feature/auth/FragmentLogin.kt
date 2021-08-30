@@ -31,24 +31,10 @@ class FragmentLogin : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val hidePassword: ImageView = view.findViewById(R.id.hidePasswordBtn)
         val passwordEt: EditText = view.findViewById(R.id.password_et_login)
         val emailEt: EditText = view.findViewById(R.id.email_et_login)
         val loginBtn: Button = view.findViewById(R.id.loginBtn)
         val signupLink: MaterialButton = view.findViewById(R.id.loginLinkToSignup)
-
-        var boolean = false
-        hidePassword.setOnClickListener {
-            if (!boolean) {
-                hidePassword.setImageResource(R.drawable.ic_eye_off)
-                passwordEt.transformationMethod = HideReturnsTransformationMethod.getInstance()
-                boolean = true
-            } else if (boolean) {
-                hidePassword.setImageResource(R.drawable.ic_eye)
-                passwordEt.transformationMethod = PasswordTransformationMethod.getInstance()
-                boolean = false
-            }
-        }
 
 
         loginBtn.setOnClickListener {

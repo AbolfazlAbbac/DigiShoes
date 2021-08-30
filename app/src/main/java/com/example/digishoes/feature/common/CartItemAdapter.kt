@@ -77,7 +77,7 @@ class CartItemAdapter(
         }
     }
 
-    inner class PurchaseDetailViewHolder(override val containerView: View) :
+    class PurchaseDetailViewHolder(override val containerView: View,val context: Context) :
         RecyclerView.ViewHolder(containerView), LayoutContainer {
         fun bind(totalPrice: Int, payablePrice: Int, shippingCost: Int) {
             containerView.totalPriceTv.text = priceFormat(totalPrice, context)
@@ -107,7 +107,7 @@ class CartItemAdapter(
             PurchaseDetailViewHolder(
                 LayoutInflater.from(parent.context)
                     .inflate(R.layout.item_purchase_detail, parent, false)
-            )
+            ,context)
         } else {
             CartItemViewHolder(
                 LayoutInflater.from(parent.context).inflate(

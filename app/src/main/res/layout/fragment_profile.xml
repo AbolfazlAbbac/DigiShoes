@@ -1,14 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Profile"
-        android:textAppearance="?textAppearanceHeadline1" />
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginTop="32dp"
+            android:scaleType="centerInside"
+            app:shapeAppearance="@style/profileShapeableView"
+            app:srcCompat="@drawable/ic_nike_logo"
+            app:strokeColor="?divideColor"
+            app:strokeWidth="1dp" />
+
+        <TextView
+            android:id="@+id/usernameTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textAppearance="?textAppearanceBody1"
+            tools:text="test@gmail.com" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:divider="@drawable/divider"
+            android:orientation="vertical"
+            android:showDividers="middle|beginning|end">
+
+            <TextView
+                style="@style/TextViewProfileView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:drawableStartCompat="@drawable/ic_favorites_24"
+                app:drawableTint="@color/black"
+                tools:text="@string/favorite" />
+
+            <TextView
+                style="@style/TextViewProfileView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:drawableStartCompat="@drawable/ic_baseline_history_24"
+                app:drawableTint="@color/black"
+                tools:text="@string/orderHistory" />
+
+            <TextView
+                android:id="@+id/authBtn"
+                style="@style/TextViewProfileView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:drawableStartCompat="@drawable/ic_baseline_vpn_key_24"
+                app:drawableTint="@color/black"
+                tools:text="@string/login" />
+        </LinearLayout>
+    </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

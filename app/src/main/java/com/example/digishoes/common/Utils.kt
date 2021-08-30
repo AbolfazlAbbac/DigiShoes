@@ -1,12 +1,15 @@
 package com.example.digishoes.common
 
 import android.content.Context
+import android.content.Intent
 import android.content.res.Resources
+import android.net.Uri
 import android.text.SpannableString
 import android.text.style.RelativeSizeSpan
 import android.util.DisplayMetrics
 import android.view.MotionEvent
 import android.view.View
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.dynamicanimation.animation.DynamicAnimation
 import androidx.dynamicanimation.animation.SpringAnimation
 import androidx.dynamicanimation.animation.SpringForce
@@ -90,5 +93,21 @@ fun <T> Single<T>.asyncNetwork(): Single<T> {
 fun priceFormat(price: Int, context: Context): String {
     val toman = context.getString(R.string.toman)
     return "${String.format("%,d", price)} $toman"
+}
+
+fun openUrlInCustomTab(context: Context, url: String) {
+    try {
+        val uri = Uri.parse(url)
+        val intentBuilder = CustomTabsIntent.Builder()
+        intentBuilder.setStartAnimations(context, android.R.anim.fade_in, android.R.anim.fade_out)
+        intentBuilder.setExitAnimations(context, android.R.anim.fade_in, android.R.anim.fade_out)
+        val customTabsIntent = intentBuilder.build()
+        customTabsIntent.intent.flags = Intent.FLAG_ACTIVITY_NO_HISTORY
+        customTabsIntent.launchUrl(context, uri)
+
+    } catch (e: Exception) {
+
+    }
+
 }
 

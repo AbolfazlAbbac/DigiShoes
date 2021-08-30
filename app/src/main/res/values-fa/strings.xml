@@ -34,6 +34,25 @@
     <string name="totalAmount">مبلغ کل خرید</string>
     <string name="shippingCost">هزینه ارسال</string>
     <string name="theAmountPayable">مبلغ قابل پرداخت</string>
+    <string name="emptyStateLoginMessage">برای خرید ابتدا باید وارد حساب کاربری خود شوید</string>
+    <string name="emptyState">اولین خرید خود را انجام دهید!</string>
+    <string name="emptyStateCbn">وارد شوید</string>
+    <string name="firstName">نام</string>
+    <string name="lastName">نام خانوادگی</string>
+    <string name="postalCode">کد پستی</string>
+    <string name="phoneNumber">شماره تلفن</string>
+    <string name="address">آدرس</string>
+    <string name="cashOnDelivery">پرداخت در محل</string>
+    <string name="onlinePayment">پرداخت اینترنتی</string>
+    <string name="shippingTitlePage">وارد کردن اطلاعات</string>
+    <string name="checkoutToolbarTitle">وضعیت سفارش</string>
+    <string name="returnToHome">بازگشت به صفحه اصلی</string>
+    <string name="orderHistory">سوابق خرید</string>
+    <string name="price">قیمت</string>
+    <string name="orderStatus">وضعیت سفارش</string>
+    <string name="success">خرید موفق</string>
+    <string name="failed">خرید ناموفق</string>
+    <string name="favorite">لیست علاقمندی ها</string>
 
 
 </resources>

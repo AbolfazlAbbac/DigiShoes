@@ -11,6 +11,7 @@ import com.example.digishoes.R
 import com.example.digishoes.common.EXTRA_KEY_ID
 import com.example.digishoes.common.DigiActivity
 import com.example.digishoes.common.DigiCompletableObserver
+import com.example.digishoes.common.priceFormat
 import com.example.digishoes.data.Comment
 import com.example.digishoes.databinding.ActivityProductDetailsBinding
 import com.example.digishoes.product.comments.CommentList
@@ -21,6 +22,7 @@ import com.google.android.material.snackbar.Snackbar
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.activity_product_details.*
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
@@ -40,15 +42,12 @@ class ProductDetails : DigiActivity() {
         val view = binding.root
         setContentView(view)
 
-        val toman: String = getString(R.string.toman)
 
         productDetailViewModel.productLiveData.observe(this) {
             binding.productNameTv.text = it.title
             imageLoadingService.load(binding.productIv, it.image)
-            binding.productCurrentPriceTv.text =
-                "${String.format("%,d", it.price)} $toman"
-            binding.productPreviousPriceTv.text =
-                "${String.format("%,d", it.previous_price)} $toman"
+            binding.productCurrentPriceTv.text = priceFormat(it.price, this)
+            binding.productPreviousPriceTv.text = priceFormat(it.previous_price, this)
             binding.productPreviousPriceTv.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
 
             binding.toolbarTitleTv.text = it.title
@@ -88,6 +87,9 @@ class ProductDetails : DigiActivity() {
                 })
         }
 
+        productDetailToolbar.setBackOnClickListener = View.OnClickListener {
+            finish()
+        }
     }
 
     fun initView() {

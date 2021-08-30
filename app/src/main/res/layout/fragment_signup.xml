@@ -42,29 +42,16 @@
             android:hint="@string/email"
             android:inputType="textEmailAddress" />
 
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/password_et_signUp"
+            style="@style/Theme.DigiShoe.Auth.et"
+            android:layout_width="@dimen/size_etLoginPage"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:paddingEnd="48dp" />
 
-            <EditText
-                android:id="@+id/password_et_signUp"
-                style="@style/Theme.DigiShoe.Auth.et"
-                android:layout_width="@dimen/size_etLoginPage"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:hint="@string/password"
-                android:inputType="textPassword"
-                android:paddingEnd="48dp" />
-
-            <ImageView
-                android:id="@+id/hidePasswordBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end|center_vertical"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="4dp"
-                app:srcCompat="@drawable/ic_eye" />
-        </FrameLayout>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/signupBtn"

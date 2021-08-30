@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <attr name="divideColor" format="color" type="color" />
+    <attr name="windowColor" format="color" />
 
     <declare-styleable name="DigiToolbarView">
         <attr name="dt_title" format="string" />

@@ -118,6 +118,20 @@ interface DigiView {
         }
     }
 
+    fun showEmptyState(resId: Int): View? {
+        rootView?.let {
+            viewContext?.let { context ->
+                var emptyState = it.findViewById<View>(R.id.emptySateLayout)
+                if (emptyState == null) {
+                    emptyState = LayoutInflater.from(context).inflate(resId, it, false)
+                    it.addView(emptyState)
+                }
+                emptyState.visibility = View.VISIBLE
+                return emptyState
+            }
+        }
+        return null
+    }
 }
 
 abstract class DigiViewModel : ViewModel() {
