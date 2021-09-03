@@ -91,4 +91,8 @@ class ProductList : DigiActivity(), ProductAdapter.onClickListener {
             putExtra(EXTRA_KEY_DATA, product)
         })
     }
+
+    override fun favoriteProductClick(product: Product) {
+        productListViewModel.addProductFavorite(product)
+    }
 }

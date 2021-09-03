@@ -3,6 +3,8 @@ package com.example.digishoes
 import android.app.Application
 import android.content.SharedPreferences
 import android.os.Bundle
+import androidx.room.Room
+import com.example.digishoes.data.db.AppDataBase
 import com.example.digishoes.data.repo.*
 import com.example.digishoes.data.repo.shipping.OrderRemoteDataSource
 import com.example.digishoes.data.repo.shipping.OrderRepository
@@ -13,9 +15,11 @@ import com.example.digishoes.feature.cart.CartViewModel
 import com.example.digishoes.feature.checkout.CheckoutViewModel
 import com.example.digishoes.feature.common.ProductAdapter
 import com.example.digishoes.feature.common.ProductAdapterPopular
+import com.example.digishoes.feature.favorite.FavoriteViewModel
 import com.example.digishoes.feature.home.HomeViewModel
 import com.example.digishoes.feature.list.ProductListViewModel
 import com.example.digishoes.feature.main.MainViewModel
+import com.example.digishoes.feature.profile.ProfileViewModel
 import com.example.digishoes.feature.shipping.ShippingViewModel
 import com.example.digishoes.product.ProductDetailViewModel
 import com.example.digishoes.product.comments.CommentsViewModel
@@ -39,10 +43,11 @@ class App : Application() {
         val myModule = module {
             single { getApiServiceInstance() }
             single<ImageLoadingService> { FerscoImageLoadingServiceImpl() }
+            single { Room.databaseBuilder(this@App, AppDataBase::class.java, "db_product").build() }
             factory<ProductRepository> {
                 ProductRepositoryImp(
                     ProductRemoteDataSource(get()),
-                    ProductLocalDataSource()
+                    get<AppDataBase>().productDao()
                 )
             }
 
@@ -58,8 +63,8 @@ class App : Application() {
             single<OrderRepository> {
                 OrderRepositoryImpl(OrderRemoteDataSource(get()))
             }
-            factory { ProductAdapterPopular(get(), androidContext()) }
-            factory { (viewType: Int) -> ProductAdapter(viewType, get(), androidContext()) }
+            factory { ProductAdapterPopular(get(), androidContext(),get()) }
+            factory { (viewType: Int) -> ProductAdapter(viewType, get(), androidContext(),get()) }
             factory<CommentRepository> { CommentRepositoryImp(CommentRemoteDataSource(get())) }
             factory<BannerRepository> { BannerRepositoryImp(BannerRemoteDataSource(get())) }
             factory<CartRepository> { CartRepositoryImp(CartRemoteDataSource(get())) }
@@ -72,6 +77,8 @@ class App : Application() {
             viewModel { MainViewModel(get()) }
             viewModel { ShippingViewModel(get()) }
             viewModel { (orderId: Int) -> CheckoutViewModel(orderId, get()) }
+            viewModel { ProfileViewModel(get()) }
+            viewModel { FavoriteViewModel(get()) }
         }
         startKoin()
         {

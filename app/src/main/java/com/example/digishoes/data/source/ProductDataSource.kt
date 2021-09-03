@@ -1,5 +1,6 @@
 package com.example.digishoes.data.source
 
+import androidx.room.Dao
 import com.example.digishoes.data.Product
 import io.reactivex.Completable
 import io.reactivex.Single
@@ -10,7 +11,7 @@ interface ProductDataSource {
 
     fun getFavorite(): Single<List<Product>>
 
-    fun addFavorite(): Completable
+    fun addFavorite(product: Product): Completable
 
-    fun deleteFavorite(): Completable
+    fun deleteFavorite(product: Product): Completable
 }

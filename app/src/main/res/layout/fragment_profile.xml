@@ -15,9 +15,9 @@
             android:layout_width="72dp"
             android:layout_height="72dp"
             android:layout_marginTop="32dp"
-            android:scaleType="centerInside"
+            android:tint="@color/black"
             app:shapeAppearance="@style/profileShapeableView"
-            app:srcCompat="@drawable/ic_nike_logo"
+            app:srcCompat="@drawable/ic_baseline_person_24"
             app:strokeColor="?divideColor"
             app:strokeWidth="1dp" />
 
@@ -38,20 +38,21 @@
             android:showDividers="middle|beginning|end">
 
             <TextView
+                android:id="@+id/favoriteBtnProfile"
                 style="@style/TextViewProfileView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@string/favorite"
                 app:drawableStartCompat="@drawable/ic_favorites_24"
-                app:drawableTint="@color/black"
-                tools:text="@string/favorite" />
+                app:drawableTint="@color/black" />
 
             <TextView
                 style="@style/TextViewProfileView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@string/orderHistory"
                 app:drawableStartCompat="@drawable/ic_baseline_history_24"
-                app:drawableTint="@color/black"
-                tools:text="@string/orderHistory" />
+                app:drawableTint="@color/black" />
 
             <TextView
                 android:id="@+id/authBtn"

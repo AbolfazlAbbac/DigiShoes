@@ -15,8 +15,8 @@
         android:theme="@style/Theme.DigiShoes"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
+        <activity android:name=".feature.favorite.FavoriteActivity" />
         <activity android:name=".feature.checkout.CheckoutActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -28,8 +28,6 @@
                     android:pathPattern="/appCheckout"
                     android:scheme="nike" />
             </intent-filter>
-
-
         </activity>
         <activity android:name=".feature.shipping.ShippingActivity" />
         <activity

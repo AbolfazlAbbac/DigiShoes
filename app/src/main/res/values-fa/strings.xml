@@ -53,6 +53,11 @@
     <string name="success">خرید موفق</string>
     <string name="failed">خرید ناموفق</string>
     <string name="favorite">لیست علاقمندی ها</string>
+    <string name="signOut">خروج از حساب کاربری</string>
+    <string name="guestUser">کاربر میهمان</string>
+    <string name="favoriteMessage">هیچی اینجا اضافه نکردی!</string>
+    <string name="deleteFavorite">از لیست علاقمندی ها حذف شد</string>
+    <string name="helpMessageFavoritePage">برای حذف کردن محصول از لیست علاقمندی ها دست خود را روی آن نگه دارید</string>
 
 
 </resources>

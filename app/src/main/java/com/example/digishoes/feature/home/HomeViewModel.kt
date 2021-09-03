@@ -5,8 +5,9 @@ import com.example.digishoes.data.repo.ProductRepository
 import com.example.digishoes.common.*
 import com.example.digishoes.data.*
 import com.example.digishoes.data.repo.BannerRepository
+import io.reactivex.schedulers.Schedulers
 
-class HomeViewModel(productRepository: ProductRepository, bannerRepository: BannerRepository) :
+class HomeViewModel(private val productRepository: ProductRepository, bannerRepository: BannerRepository) :
     DigiViewModel() {
     val productLiveData = MutableLiveData<List<Product>>()
     val productLiveData_Popular = MutableLiveData<List<Product>>()
@@ -41,5 +42,26 @@ class HomeViewModel(productRepository: ProductRepository, bannerRepository: Bann
                 }
 
             })
+
+
+    }
+    fun addProductFavorite(product: Product) {
+        if (product.isFavorite) {
+            productRepository.deleteFavorite(product)
+                .subscribeOn(Schedulers.io())
+                .subscribe(object : DigiCompletableObserver(compositeDisposable) {
+                    override fun onComplete() {
+                        product.isFavorite = false
+                    }
+                })
+        } else {
+            productRepository.addFavorite(product)
+                .subscribeOn(Schedulers.io())
+                .subscribe(object : DigiCompletableObserver(compositeDisposable) {
+                    override fun onComplete() {
+                        product.isFavorite = true
+                    }
+                })
+        }
     }
 }

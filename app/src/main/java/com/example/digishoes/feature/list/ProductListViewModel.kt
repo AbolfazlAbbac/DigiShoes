@@ -2,12 +2,10 @@ package com.example.digishoes.feature.list
 
 import androidx.lifecycle.MutableLiveData
 import com.example.digishoes.R
-import com.example.digishoes.common.DigiSingleObserver
-import com.example.digishoes.common.DigiView
-import com.example.digishoes.common.DigiViewModel
-import com.example.digishoes.common.asyncNetwork
+import com.example.digishoes.common.*
 import com.example.digishoes.data.Product
 import com.example.digishoes.data.repo.ProductRepository
+import io.reactivex.schedulers.Schedulers
 
 class ProductListViewModel(var sort: Int, val productRepository: ProductRepository) :
     DigiViewModel() {
@@ -41,5 +39,26 @@ class ProductListViewModel(var sort: Int, val productRepository: ProductReposito
         this.sort = sort
         this.selectedSortLiveData.value = sorTitle[sort]
         getProduct()
+    }
+
+    fun addProductFavorite(product: Product) {
+        if (product.isFavorite) {
+            productRepository.deleteFavorite(product)
+                .subscribeOn(Schedulers.io())
+                .subscribe(object : DigiCompletableObserver(compositeDisposable) {
+                    override fun onComplete() {
+                        product.isFavorite = false
+                    }
+                })
+        } else {
+            productRepository.addFavorite(product)
+                .subscribeOn(Schedulers.io())
+                .subscribe(object : DigiCompletableObserver(compositeDisposable) {
+                    override fun onComplete() {
+                        product.isFavorite = true
+
+                    }
+                })
+        }
     }
 }

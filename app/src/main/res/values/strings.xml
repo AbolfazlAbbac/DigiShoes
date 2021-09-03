@@ -64,4 +64,11 @@
     <string name="failed">Failed</string>
 
     <string name="favorite">Favorite</string>
+
+    <string name="signOut">SignOut</string>
+    <string name="guestUser">Guest User</string>
+
+    <string name="favoriteMessage">Nothing here</string>
+    <string name="deleteFavorite">Item Remove of Favorite</string>
+    <string name="helpMessageFavoritePage">You can hold item for delete from list</string>
 </resources>

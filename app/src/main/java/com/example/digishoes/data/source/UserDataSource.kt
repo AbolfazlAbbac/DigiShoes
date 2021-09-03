@@ -13,4 +13,10 @@ interface UserDataSource {
     fun loadToken()
 
     fun saveToken(token: String, refresh_token: String)
+
+    fun signOut()
+
+    fun getUserName(): String
+
+    fun saveUsername(username: String)
 }
