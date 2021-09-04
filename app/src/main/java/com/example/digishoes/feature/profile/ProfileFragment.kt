@@ -47,12 +47,21 @@ class ProfileFragment : NikeFragment() {
         if (viewModel.isSignIn) {
             authBtn.text = getString(R.string.signOut)
             usernameTv.text = viewModel.getUserName
-            authBtn.setCompoundDrawablesWithIntrinsicBounds(
-                0,
-                0,
-                R.drawable.ic_baseline_exit_to_app_24,
-                0
-            )
+            if (Locale.getDefault().language == "en") {
+                authBtn.setCompoundDrawablesWithIntrinsicBounds(
+                    R.drawable.ic_baseline_exit_to_app_24,
+                    0,
+                    0,
+                    0
+                )
+            } else {
+                authBtn.setCompoundDrawablesWithIntrinsicBounds(
+                    0,
+                    0,
+                    R.drawable.ic_baseline_exit_to_app_24,
+                    0
+                )
+            }
             authBtn.setOnClickListener {
                 viewModel.signOut()
                 checkout()
@@ -62,14 +71,14 @@ class ProfileFragment : NikeFragment() {
             authBtn.setOnClickListener {
                 startActivity(Intent(requireContext(), AuthActivity::class.java))
             }
-            if(Locale.getDefault().displayLanguage == "en"){
+            if (Locale.getDefault().displayLanguage == "en") {
                 authBtn.setCompoundDrawablesWithIntrinsicBounds(
                     R.drawable.ic_baseline_vpn_key_24,
                     0,
                     0,
                     0
                 )
-            }else{
+            } else {
                 authBtn.setCompoundDrawablesWithIntrinsicBounds(
                     0,
                     0,
