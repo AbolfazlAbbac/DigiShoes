@@ -7,10 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.digishoes.R
 import com.example.digishoes.common.NikeFragment
+import com.example.digishoes.data.TokenContainer
 import com.example.digishoes.feature.auth.AuthActivity
 import com.example.digishoes.feature.favorite.FavoriteActivity
+import com.example.digishoes.feature.history.OrderHistory
 import kotlinx.android.synthetic.main.fragment_profile.*
 import org.koin.android.ext.android.inject
+import java.util.*
 
 class ProfileFragment : NikeFragment() {
 
@@ -27,6 +30,9 @@ class ProfileFragment : NikeFragment() {
         super.onViewCreated(view, savedInstanceState)
         favoriteBtnProfile.setOnClickListener {
             startActivity(Intent(requireContext(), FavoriteActivity::class.java))
+        }
+        orderHistoryBtn.setOnClickListener {
+            startActivity(Intent(requireContext(), OrderHistory::class.java))
         }
 
     }
@@ -56,12 +62,22 @@ class ProfileFragment : NikeFragment() {
             authBtn.setOnClickListener {
                 startActivity(Intent(requireContext(), AuthActivity::class.java))
             }
-            authBtn.setCompoundDrawablesWithIntrinsicBounds(
-                0,
-                0,
-                R.drawable.ic_baseline_vpn_key_24,
-                0
-            )
+            if(Locale.getDefault().displayLanguage == "en"){
+                authBtn.setCompoundDrawablesWithIntrinsicBounds(
+                    R.drawable.ic_baseline_vpn_key_24,
+                    0,
+                    0,
+                    0
+                )
+            }else{
+                authBtn.setCompoundDrawablesWithIntrinsicBounds(
+                    0,
+                    0,
+                    R.drawable.ic_baseline_vpn_key_24,
+                    0
+                )
+            }
+
             usernameTv.text = getText(R.string.guestUser)
 
         }

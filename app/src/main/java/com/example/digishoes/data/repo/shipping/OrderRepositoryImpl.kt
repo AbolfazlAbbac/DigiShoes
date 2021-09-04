@@ -1,6 +1,7 @@
 package com.example.digishoes.data.repo.shipping
 
 import com.example.digishoes.data.Checkout
+import com.example.digishoes.data.OrderHistoryItem
 import com.example.digishoes.data.SubmitOrderResult
 import io.reactivex.Single
 
@@ -26,4 +27,8 @@ class OrderRepositoryImpl(private val orderRemoteDataSource: OrderDataSource) : 
     override fun checkout(order_id: Int): Single<Checkout> {
         return orderRemoteDataSource.checkout(order_id)
     }
+
+    override fun list(): Single<List<OrderHistoryItem>> =
+        orderRemoteDataSource.list()
+
 }

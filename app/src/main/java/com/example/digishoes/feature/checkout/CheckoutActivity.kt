@@ -1,11 +1,14 @@
 package com.example.digishoes.feature.checkout
 
+import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.digishoes.R
 import com.example.digishoes.common.EXTRA_KEY_ID
 import com.example.digishoes.common.priceFormat
+import com.example.digishoes.feature.history.OrderHistory
+import com.example.digishoes.feature.home.HomeFragment
 import kotlinx.android.synthetic.main.activity_checkout.*
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
@@ -30,6 +33,13 @@ class CheckoutActivity : AppCompatActivity() {
                 if (it.purchase_success) getString(R.string.success) else getString(R.string.failed)
             orderStatusTv.text = it.payment_status
             totalPriceTvCheckout.text = priceFormat(it.payable_price, this)
+        }
+        returnHomeBtn.setOnClickListener {
+            startActivity(Intent(this, HomeFragment::class.java))
+        }
+
+        orderHistoryBtb.setOnClickListener {
+            startActivity(Intent(this, OrderHistory::class.java))
         }
     }
 }

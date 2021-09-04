@@ -15,6 +15,7 @@
         android:theme="@style/Theme.DigiShoes"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
+        <activity android:name=".feature.history.OrderHistory" />
         <activity android:name=".feature.favorite.FavoriteActivity" />
         <activity android:name=".feature.checkout.CheckoutActivity">
             <intent-filter>

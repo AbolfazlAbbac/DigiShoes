@@ -58,6 +58,7 @@
     <string name="favoriteMessage">هیچی اینجا اضافه نکردی!</string>
     <string name="deleteFavorite">از لیست علاقمندی ها حذف شد</string>
     <string name="helpMessageFavoritePage">برای حذف کردن محصول از لیست علاقمندی ها دست خود را روی آن نگه دارید</string>
+    <string name="OrderId">کد سفارش</string>
 
 
 </resources>

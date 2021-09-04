@@ -21,7 +21,7 @@ class FavoriteViewModel(private val productRepository: ProductRepository) : Digi
         productRepository.getFavorite()
             .subscribeOn(Schedulers.io())
             .doAfterSuccess {
-                emptyState.value = EmptyState(false)
+                emptyState.postValue(EmptyState(false))
             }
             .subscribe(object : DigiSingleObserver<List<Product>>(compositeDisposable) {
                 override fun onSuccess(t: List<Product>) {

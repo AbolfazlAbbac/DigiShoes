@@ -16,6 +16,7 @@ import com.example.digishoes.feature.checkout.CheckoutViewModel
 import com.example.digishoes.feature.common.ProductAdapter
 import com.example.digishoes.feature.common.ProductAdapterPopular
 import com.example.digishoes.feature.favorite.FavoriteViewModel
+import com.example.digishoes.feature.history.OrderHistoryViewModel
 import com.example.digishoes.feature.home.HomeViewModel
 import com.example.digishoes.feature.list.ProductListViewModel
 import com.example.digishoes.feature.main.MainViewModel
@@ -63,8 +64,8 @@ class App : Application() {
             single<OrderRepository> {
                 OrderRepositoryImpl(OrderRemoteDataSource(get()))
             }
-            factory { ProductAdapterPopular(get(), androidContext(),get()) }
-            factory { (viewType: Int) -> ProductAdapter(viewType, get(), androidContext(),get()) }
+            factory { ProductAdapterPopular(get(), androidContext(), get()) }
+            factory { (viewType: Int) -> ProductAdapter(viewType, get(), androidContext(), get()) }
             factory<CommentRepository> { CommentRepositoryImp(CommentRemoteDataSource(get())) }
             factory<BannerRepository> { BannerRepositoryImp(BannerRemoteDataSource(get())) }
             factory<CartRepository> { CartRepositoryImp(CartRemoteDataSource(get())) }
@@ -79,6 +80,7 @@ class App : Application() {
             viewModel { (orderId: Int) -> CheckoutViewModel(orderId, get()) }
             viewModel { ProfileViewModel(get()) }
             viewModel { FavoriteViewModel(get()) }
+            viewModel { OrderHistoryViewModel(get()) }
         }
         startKoin()
         {

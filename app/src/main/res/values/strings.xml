@@ -71,4 +71,6 @@
     <string name="favoriteMessage">Nothing here</string>
     <string name="deleteFavorite">Item Remove of Favorite</string>
     <string name="helpMessageFavoritePage">You can hold item for delete from list</string>
+
+    <string name="OrderId">Order Id</string>
 </resources>

@@ -1,6 +1,7 @@
 package com.example.digishoes.data.repo.shipping
 
 import com.example.digishoes.data.Checkout
+import com.example.digishoes.data.OrderHistoryItem
 import com.example.digishoes.data.SubmitOrderResult
 import com.example.digishoes.service.http.ApiService
 import com.google.gson.JsonObject
@@ -28,4 +29,6 @@ class OrderRemoteDataSource(private val apiService: ApiService) : OrderDataSourc
     override fun checkout(order_id: Int): Single<Checkout> {
         return apiService.checkout(order_id)
     }
+
+    override fun list(): Single<List<OrderHistoryItem>> = apiService.list()
 }
