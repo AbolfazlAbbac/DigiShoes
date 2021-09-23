@@ -4,7 +4,9 @@ DigiShoes Project - A store to buy shoes online
 ![صفحات-اصلی-دیجی-شوز](https://user-images.githubusercontent.com/88549597/134461933-23bf9dc7-17ac-45aa-8823-2ad19099a59c.png)
 
 > Dependency Injection : Koin
+
 > MVVM Architecture
+ 
 > Retrofit Api Interface
 
 
